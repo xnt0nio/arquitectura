@@ -1,0 +1,152 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block css %}
+
+{% endblock %}
+{% block contenido %}
+
+
+
+
+<div class="container-fluid page-header py-6 my-6 mt-0 wow fadeIn" data-wow-delay="0.1s">
+  <div class="container text-center">
+  </div>
+</div>
+
+
+<div class="container-fluid mt-3">
+  <button id="my-button" class="ov-btn-grow-ellipse" type="button" data-bs-toggle="offcanvas" data-bs-target="#demo"
+    style="position: fixed; top: 210px; right: 10px;">
+    Ver Menú
+  </button>
+</div>
+
+<div class="offcanvas offcanvas-end" id="demo">
+  <div class="offcanvas-header">
+    <h1 class="offcanvas-title" style="color: #3e2514;">Categorias</h1>
+    <button class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="foote my-0 mb-0 py-0">
+    <div>
+      <ul>
+        <a class="btn btn-link2" href="{% url 'menu' %}" style="color: #3e2514 ;">Todos Los Productos</a>
+        {% for categoria in tipos_productos %}
+        <a class="btn btn-link2" href="?categoria={{ categoria.descripcion }}"
+          style="color: #3e2514 ;">{{categoria.descripcion }}</a>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+{% if productos %}
+<section class="h-135 gradient-custom wow fadeInUp">
+  <div class="container py-2 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-lg-10 col-xl-8">
+        <div class="card" style="border-radius: 0px;">      
+          {% if categoria.descripcion != categoria_seleccionada %}
+          {% for categoria in categorias %}
+          <div class="card-header px-4 py-5" style="background-color: #b4832d50;">
+            <h2 class="text-center" style="color: #ad998d;">{{ categoria.tipo_producto.descripcion }}</h2>
+          </div>
+          {% endfor %}
+          {% elif categoria.descripcion == categoria_seleccionada %}
+          <div class="card-header px-4 py-5" style="background-color: #b4832d50;">
+            <h2 class="text-center" style="color: #ad998d;">todos los productos</h2>
+          </div>
+          {% endif %}
+          <div class="card-body p-4">
+            <div class="d-flex justify-content-between align-items-center mb-4"></div>
+            {% for categoria in categorias %}
+            {% if categoria.descripcion == categoria_seleccionada %}
+            <div class="alert alert-cafeteria text-center">
+              <h4 style="color: #91674c ;">{{ categoria.tipo_producto.descripcion }}</h4>
+            </div>
+            {% endif %}
+            {% for producto in categoria.productos %}
+            {% if producto.disponible == 1 %}
+            <div class="card shadow-0 border mb-4">
+              <div class="row">
+                <div class="col">
+                  <div class="card card-2">
+                    <div class="card-body">
+                      <div class="media">
+                        <div class="media-body my-auto">
+                          <div class="row align-items-center">
+                            <div class="col-12">
+                              <div class="d-flex justify-content-between">
+                                <h6 class="mb-2">{{ producto.nombre }}</h6>
+                                {% if producto.precio %}
+                                <h6 class="mb-2">${{ producto.precio }}</h6>
+                                {% endif %}
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      {% if producto.descripcion %}
+                      <hr class="my-3">
+                      <div class="row">
+                        <div class="col-md-12 mb-12">
+                          <small>{{ producto.descripcion }}</small>
+                        </div>
+                      </div>
+                      {% endif %}
+                      {% if producto.agregados %}
+                      <hr class="my-3">
+                      <div class="media">
+                        <div class="media-body my-auto">
+                          <div class="d-flex justify-content-between align-items-center">
+                            <h6 class="mb-2">{{ producto.agregados }}</h6>
+                            {% if producto.precio_agregados %}
+                            <h6 class="mb-2 ml-auto">+${{ producto.precio_agregados }}</h6>
+                            {% endif %}
+                          </div>
+                        </div>
+                      </div>
+                      {% endif %}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+            {% endfor %}
+          </div>
+          <div class="card-footer border-0 px-4 py-5"
+            style="background-color: #b4832d50; border-bottom-left-radius: 0px; border-bottom-right-radius: 0px;"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% else %}
+<section class="h-135 gradient-custom wow fadeInUp">
+  <div class="container py-2 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-lg-10 col-xl-8">
+        <div class="card" style="border-radius: 0px;">
+          <div class="card-header px-4 py-5" style="background-color: #b4832d50;">
+            <h2 class="text-center" style="color: #ad998d;"></h2>
+          </div>
+          <div class="card-body p-4">
+            <div class="d-flex justify-content-between align-items-center mb-4"></div>
+            <div class="alert alert-danger text-center">
+              No hay productos disponibles
+            </div>
+          </div>
+          <div class="card-footer border-0 px-4 py-5"
+            style="background-color: #b4832d50; border-bottom-left-radius: 0px; border-bottom-right-radius: 0px;"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endif %}
+{% endblock %}
+{% block js %}
+{% endblock %}

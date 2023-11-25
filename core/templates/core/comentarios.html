@@ -1,0 +1,114 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block css %}
+
+
+
+{% endblock %}
+{% block contenido %}
+
+<div class="container-fluid page-header py-6 my-6 mt-0 wow fadeIn" data-wow-delay="0.1s">
+  <div class="container text-center">
+  </div>
+</div>
+
+<div class="container-xxl py-6">
+  <div class="container">
+    <div class="row g-3 team-items">
+      {% if historial_compras %}
+      {% for compra in historial_compras %}
+      <div class="col-lg-4 col-md-6 col-sm-12 wow fadeInUp"  data-wow-delay="0.7s">
+        <div class="team-item" >  
+          <div class="team-social text-center">
+            <td>
+              <a class="btn btn-square btn-outline-primary border-2 m-1" onclick="deleteComentario({{ compra.id }})">
+                <i class="fa fa-trash"></i>
+              </a>
+            </td>
+          </div>
+          <div class="bg-light text-center p-4" style="height: 510px;">
+            <div class="container mt-1">
+              <div class="media">
+                <div class="media-body my-auto text-left">
+                  <div class="row my-auto flex-column flex-md-row">
+                    <div class="col my-auto">
+                      <h6 class="mb-2">Nombre:</h6>
+                      <small class="mb-2">{{ compra.nombre }}</small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <hr class="my-3">
+              <div class="media">
+                <div class="media-body my-auto text-left">
+                  <div class="row my-auto flex-column flex-md-row">
+                    <div class="col my-auto">
+                      <h6 class="mb-2">Correo:</h6>
+                      <small class="mb-2">{{ compra.correo }}</small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <hr class="my-3">
+              <div class="media">
+                <div class="media-body my-auto text-left">
+                  <div class="row my-auto flex-column flex-md-row">
+                    <div class="col my-auto">
+                      <h6 class="mb-2">Asunto:</h6>
+                      <small class="mb-2">{{ compra.asunto }}</small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <hr class="my-3">
+              <div class="media">
+                <div class="media-body my-auto text-left">
+                  <div class="row my-auto flex-column flex-md-row">
+                    <div class="col my-auto">
+                      <h6 class="mb-2">Mensaje:</h6>
+                      <small class="mb-2">{{ compra.mensaje }}</small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <hr class="my-3">
+              <div class="media">
+                <div class="media-body my-auto text-left">
+                  <div class="row my-auto flex-column flex-md-row">
+                    <div class="col my-auto">
+                      <h6 class="mb-2">Fecha: {{ compra.fecha }}</h6>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+      {% else %}
+      <div class="alert alert-danger text-center">
+        No hay comentarios
+      </div>
+      {% endif %}
+
+    </div>
+  </div>
+
+  {% if historial_compras.has_other_pages %}
+  <div class="pagination justify-content-center mt-4">
+    {% if historial_compras.has_previous %}
+    <a class="btn btn-outline-primary btn-custom" href="?page={{ historial_compras.previous_page_number }}">Anterior</a>
+    {% endif %}
+    <span class="current-page btn btn-primary btn-custom disabled">{{ historial_compras.number }}</span>
+    {% if historial_compras.has_next %}
+    <a class="btn btn-outline-primary btn-custom" href="?page={{ historial_compras.next_page_number }}">Siguiente</a>
+    {% endif %}
+  </div>
+  {% endif %}
+</div>
+
+
+{% endblock %}
+{% block js %}
+{% endblock %}
