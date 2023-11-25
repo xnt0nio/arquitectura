@@ -14,7 +14,7 @@ urlpatterns = [
     path('deleteComent/<id>/', deleteComent, name="deleteComent"),
     path('accounts/', include('django.contrib.auth.urls')),
     path('nodisponible', nodisponible, name="nodisponible"),  
-  
+    path('registro/', registro, name='registro'),
 ]
 
 urlpatterns += [

@@ -6,8 +6,8 @@ from django.contrib import messages
 from django.shortcuts import redirect
 from django.core.paginator import Paginator
 from django.contrib.auth.decorators import user_passes_test
-
-
+from django.contrib.auth import authenticate, login
+from django.contrib.auth.models import Group
 
 
 
@@ -18,6 +18,25 @@ def grupo_requerido(nombre_grupo):
             return view_fuc(request, *arg, **kwargs)
         return wrapper
     return decorator
+
+
+def registro(request):
+    data = {
+        'form': CustomUserCreationForm()
+    }
+    if request.method == 'POST':
+        formulario = CustomUserCreationForm(data=request.POST)
+        if formulario.is_valid():
+            formulario.save()
+            user = authenticate(username=formulario.cleaned_data["username"], password=formulario.cleaned_data["password1"])
+            grupo = Group.objects.get(name="usuario")
+            user.groups.add(grupo)
+            login(request, user)
+            messages.success(request, "Te has registrado correctamente")
+            #redirigir al home
+            return redirect(to="index")
+        data["form"] = formulario    
+    return render(request, 'registration/registro.html',data)
 
 
 

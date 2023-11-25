@@ -1,8 +1,8 @@
 from django import forms
 from django.forms import ModelForm
 from .models import *
-
-
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
 class ProductoForm(ModelForm):
 
     nombre = forms.CharField(min_length=1,widget=forms.TextInput(attrs={"placeholder":"Ingrese Nombre"}))
@@ -19,3 +19,10 @@ class Contacto(forms.ModelForm):
     class Meta:
         model = ContactForm
         fields = '__all__'
+
+
+class CustomUserCreationForm(UserCreationForm):
+    
+    class Meta:
+        model = User
+        fields = ['username', "first_name", "last_name", "email", "password1", "password2"]
