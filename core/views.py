@@ -407,3 +407,236 @@ def deleteComent(request, id):
     comentario = ContactForm.objects.get(id=id)
     comentario.delete()
     return redirect(to="comentarios")
+
+
+
+
+
+
+
+#1
+def updateinstructor(request, id):
+    instructor = instructor.objects.get(id=id)
+    data = {
+        'form' : InstructorForm(instance=instructor) 
+    }
+
+    if request.method == 'POST':
+        formulario = ProductoForm(data=request.POST, instance=producto, files=request.FILES)
+        if formulario.is_valid():
+            formulario.save()           
+            messages.success(request, "Producto modificado correctamente")
+            data['form'] = formulario 
+         
+    return render(request, 'core/update-product.html', data)    
+
+
+
+
+
+
+
+
+
+#2
+def updateinstructor(request, id):
+    instructor = instructor.objects.get(id=id)
+    data = {
+        'form' : InstructorForm(instance=instructor) 
+    }
+
+    if request.method == 'POST':
+        formulario = ProductoForm(data=request.POST, instance=producto, files=request.FILES)
+        if formulario.is_valid():
+            formulario.save()           
+            messages.success(request, "Producto modificado correctamente")
+            data['form'] = formulario 
+         
+    return render(request, 'core/update-product.html', data)
+
+
+
+
+
+
+
+
+#3
+def updateinstructor(request, id):
+    instructor = instructor.objects.get(id=id)
+    data = {
+        'form' : InstructorForm(instance=instructor) 
+    }
+
+    if request.method == 'POST':
+        formulario = ProductoForm(data=request.POST, instance=producto, files=request.FILES)
+        if formulario.is_valid():
+            formulario.save()           
+            messages.success(request, "Producto modificado correctamente")
+            data['form'] = formulario 
+         
+    return render(request, 'core/update-product.html', data)
+
+
+
+
+
+#4
+def updateinstructor(request, id):
+    instructor = instructor.objects.get(id=id)
+    data = {
+        'form' : InstructorForm(instance=instructor) 
+    }
+
+    if request.method == 'POST':
+        formulario = ProductoForm(data=request.POST, instance=producto, files=request.FILES)
+        if formulario.is_valid():
+            formulario.save()           
+            messages.success(request, "Producto modificado correctamente")
+            data['form'] = formulario 
+         
+    return render(request, 'core/update-product.html', data)      
+
+
+
+
+
+#5
+def updateinstructor(request, id):
+    instructor = instructor.objects.get(id=id)
+    data = {
+        'form' : InstructorForm(instance=instructor) 
+    }
+
+    if request.method == 'POST':
+        formulario = ProductoForm(data=request.POST, instance=producto, files=request.FILES)
+        if formulario.is_valid():
+            formulario.save()           
+            messages.success(request, "Producto modificado correctamente")
+            data['form'] = formulario 
+         
+    return render(request, 'core/update-product.html', data)
+
+
+
+
+
+
+
+
+
+
+#6
+def updateinstructor(request, id):
+    instructor = instructor.objects.get(id=id)
+    data = {
+        'form' : InstructorForm(instance=instructor) 
+    }
+
+    if request.method == 'POST':
+        formulario = ProductoForm(data=request.POST, instance=producto, files=request.FILES)
+        if formulario.is_valid():
+            formulario.save()           
+            messages.success(request, "Producto modificado correctamente")
+            data['form'] = formulario 
+         
+    return render(request, 'core/update-product.html', data)
+
+
+
+
+
+
+
+#7
+def updateinstructor(request, id):
+    instructor = instructor.objects.get(id=id)
+    data = {
+        'form' : InstructorForm(instance=instructor) 
+    }
+
+    if request.method == 'POST':
+        formulario = ProductoForm(data=request.POST, instance=producto, files=request.FILES)
+        if formulario.is_valid():
+            formulario.save()           
+            messages.success(request, "Producto modificado correctamente")
+            data['form'] = formulario 
+         
+    return render(request, 'core/update-product.html', data)    
+
+
+
+
+
+
+
+#7
+def updateinstructor(request, id):
+    instructor = instructor.objects.get(id=id)
+    data = {
+        'form' : InstructorForm(instance=instructor) 
+    }
+
+    if request.method == 'POST':
+        formulario = ProductoForm(data=request.POST, instance=producto, files=request.FILES)
+        if formulario.is_valid():
+            formulario.save()           
+            messages.success(request, "Producto modificado correctamente")
+            data['form'] = formulario 
+         
+    return render(request, 'core/update-product.html', data)  
+
+
+
+
+ #7
+def updateinstructor(request, id):
+    instructor = instructor.objects.get(id=id)
+    data = {
+        'form' : InstructorForm(instance=instructor) 
+    }
+
+    if request.method == 'POST':
+        formulario = ProductoForm(data=request.POST, instance=producto, files=request.FILES)
+        if formulario.is_valid():
+            formulario.save()           
+            messages.success(request, "Producto modificado correctamente")
+            data['form'] = formulario 
+         
+    return render(request, 'core/update-product.html', data)  
+
+
+
+#7
+def updateinstructor(request, id):
+    instructor = instructor.objects.get(id=id)
+    data = {
+        'form' : InstructorForm(instance=instructor) 
+    }
+
+    if request.method == 'POST':
+        formulario = ProductoForm(data=request.POST, instance=producto, files=request.FILES)
+        if formulario.is_valid():
+            formulario.save()           
+            messages.success(request, "Producto modificado correctamente")
+            data['form'] = formulario 
+         
+    return render(request, 'core/update-product.html', data)  
+
+
+
+#7
+def updateinstructor(request, id):
+    instructor = instructor.objects.get(id=id)
+    data = {
+        'form' : InstructorForm(instance=instructor) 
+    }
+
+    if request.method == 'POST':
+        formulario = ProductoForm(data=request.POST, instance=producto, files=request.FILES)
+        if formulario.is_valid():
+            formulario.save()           
+            messages.success(request, "Producto modificado correctamente")
+            data['form'] = formulario 
+         
+    return render(request, 'core/update-product.html', data)              

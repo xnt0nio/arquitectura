@@ -28,10 +28,19 @@ urlpatterns = [
     
     
     
+    path('updateinstructor/<id>/', updateinstructor, name="updateinstructor"),
+    path('updateadultomayor/<id>/', updateadultomayor, name="updateadultomayor"),
+    path('updatemateriales/<id>/', updatemateriales, name="updatemateriales"),
+    path('updatesala/<id>/', updatesala, name="updatesala"),
+    path('updatetalleres/<id>/', updatetalleres, name="updatetalleres"),
+    path('updatepostulaciontaller/<id>/', updatepostulaciontaller, name="updatepostulaciontaller"),
+    path('updatemuni/<id>/', updatemuni, name="updatemuni"),
+    path('updatepago/<id>/', updatepago, name="updatepago"),
+    path('updatebono/<id>/', updatebono, name="updatebono"),
+    path('updateusuario/<id>/', updateusuario, name="updateusuario"),
+    path('updatecredencial/<id>/', updatecredencial, name="updatecredencial"),
+    path('updatepostulacioninstructor/<id>/', updatepostulacioninstructor, name="updatepostulacioninstructor"),
     
-    
-    
-
 
 
 
