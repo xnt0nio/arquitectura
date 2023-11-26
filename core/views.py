@@ -246,8 +246,8 @@ def addPostulacionInstructor(request):
 def listar(request):
     instructores = instructor.objects.all()
     adultos_mayores = adulto_mayor.objects.all()
-    lista_materiales = materiales.objects.all()
-    salas = sala.objects.all()
+    materiales = Materiales.objects.all()
+    sala = Sala.objects.all()
     talleres = Talleres.objects.all()
     postulaciones_taller = postulacion_taller.objects.all()
     municipalidades = Municipalidad.objects.all()
@@ -260,8 +260,8 @@ def listar(request):
     return render(request, 'core/listar.html', {
         'instructores': instructores,
         'adultos_mayores': adultos_mayores,
-        'lista_materiales': lista_materiales,
-        'salas': salas,
+        'materiales': materiales,
+        'sala': sala,
         'tallere': talleres,
         'postulaciones_taller': postulaciones_taller,
         'municipalidades': municipalidades,

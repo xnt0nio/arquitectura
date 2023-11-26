@@ -98,7 +98,7 @@ class instructor(models.Model):
 
 
 
-class materiales(models.Model):
+class Materiales(models.Model):
     Rut = models.IntegerField(blank=True, null=True)
     nombre = models.CharField(max_length=30)
     stock = models.IntegerField(blank=True, null=True)
@@ -112,7 +112,7 @@ class Talleres(models.Model):
     horas = models.IntegerField(blank=True, null=True)
 
 
-class sala(models.Model):
+class Sala(models.Model):
     Idsala = models.IntegerField(blank=True, null=True)
     nombre = models.CharField(max_length=70)
     capacidad = models.IntegerField(blank=True, null=True)

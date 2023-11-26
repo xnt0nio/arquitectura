@@ -56,7 +56,7 @@ class InstructorForm(forms.ModelForm):
 
 class MaterialesForm(forms.ModelForm):
     class Meta:
-        model = materiales
+        model = Materiales
         fields = '__all__'
 
 class TalleresForm(forms.ModelForm):
@@ -66,7 +66,7 @@ class TalleresForm(forms.ModelForm):
 
 class SalaForm(forms.ModelForm):
     class Meta:
-        model = sala
+        model = Sala
         fields = '__all__'
 
 class BonoForm(forms.ModelForm):
