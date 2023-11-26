@@ -242,7 +242,7 @@ def addPostulacionInstructor(request):
           
 
 
-#listar
+#listar aqui son 12
 def listar(request):
     instructores = instructor.objects.all()
     adultos_mayores = adulto_mayor.objects.all()
@@ -271,6 +271,147 @@ def listar(request):
         'credenciales': credenciales,
         'postulaciones_instructor': postulaciones_instructor,
     })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#los listar aqui son 12 en total
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -669,3 +810,44 @@ def updateinstructor(request, id):
             data['form'] = formulario 
          
     return render(request, 'core/update-product.html', data)              
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#los delete aqui abajo son 12
