@@ -106,7 +106,7 @@ class materiales(models.Model):
 
 
 
-class talleres(models.Model):
+class Talleres(models.Model):
     idtalleres = models.IntegerField(blank=True, null=True)
     nombre = models.CharField(max_length=70)
     horas = models.IntegerField(blank=True, null=True)

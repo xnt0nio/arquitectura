@@ -28,7 +28,7 @@ urlpatterns = [
     
     
     
-    
+    path('listar', listar, name='listar'),
     
     
 

@@ -1,0 +1,26 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block css %}
+  <!-- Agrega aquí tus enlaces CSS específicos si es necesario -->
+{% endblock %}
+
+{% block contenido %}
+  <h1>Listado de Instructores</h1>
+  <ul>
+    {% for instructor in instructores %}
+      <li>
+        <p>Nombre del Instructor:</p>
+        {{ instructor.primer_nombre }} {{ instructor.primer_apellido }}
+        
+        <p>Correo:</p>
+        {{ instructor.correo }}
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}
+
+{% block js %}
+  <!-- Agrega aquí tus scripts JavaScript específicos si es necesario -->
+{% endblock %}

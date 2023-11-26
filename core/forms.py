@@ -61,7 +61,7 @@ class MaterialesForm(forms.ModelForm):
 
 class TalleresForm(forms.ModelForm):
     class Meta:
-        model = talleres
+        model = Talleres
         fields = '__all__'
 
 class SalaForm(forms.ModelForm):
