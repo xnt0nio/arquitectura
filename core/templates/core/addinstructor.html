@@ -1,0 +1,22 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block css %}
+  <!-- Agrega aquí tus enlaces CSS específicos si es necesario -->
+{% endblock %}
+
+{% block contenido %}
+  <div class="container">
+    <h2>Agregar Instructor</h2>
+    <form method="post" class="form">
+      {% csrf_token %}
+      {{ form|crispy }}
+      <button type="submit" class="btn btn-primary">Guardar</button>
+    </form>
+  </div>
+{% endblock %}
+
+{% block js %}
+  <!-- Agrega aquí tus scripts JavaScript específicos si es necesario -->
+{% endblock %}

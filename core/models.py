@@ -62,7 +62,9 @@ class Municipalidad(models.Model):
 
 
 class pago(models.Model):
-    idMuni = models.IntegerField(blank=True, null=True)
+    """
+    
+    """
     fecha_pago = models.DateTimeField(blank = True, null=True)
 
 
@@ -105,13 +107,13 @@ class materiales(models.Model):
 
 
 class talleres(models.Model):
-    Id = models.IntegerField(blank=True, null=True)
+    idtalleres = models.IntegerField(blank=True, null=True)
     nombre = models.CharField(max_length=70)
     horas = models.IntegerField(blank=True, null=True)
 
 
 class sala(models.Model):
-    Id = models.IntegerField(blank=True, null=True)
+    Idsala = models.IntegerField(blank=True, null=True)
     nombre = models.CharField(max_length=70)
     capacidad = models.IntegerField(blank=True, null=True)
 
@@ -119,7 +121,7 @@ class sala(models.Model):
 
 
 class bono(models.Model):
-    Id = models.IntegerField(blank=True, null=True)
+    Idbono = models.IntegerField(blank=True, null=True)
     nombre = models.CharField(max_length=70)
     monto = models.IntegerField(blank=True, null=True)
     frecuencia = models.CharField(max_length=70)
@@ -127,7 +129,7 @@ class bono(models.Model):
 
 
 class postulacion_taller(models.Model):
-    Id = models.IntegerField(blank=True, null=True)
+    Idpostulacion = models.IntegerField(blank=True, null=True)
     fecha_inicio = models.DateTimeField(blank = True, null=True)
     fecha_termino = models.DateTimeField(blank = True, null=True)
     cupos = models.IntegerField(blank=True, null=True)  
@@ -161,7 +163,7 @@ class postulacion_instructor(models.Model):
 
 
 
-class postulacion_instructor(models.Model):
+class credencial(models.Model):
     id_credencial = models.IntegerField(blank=True, null=True)
     nombre_usuario = models.CharField(max_length=50)
     contraseña = models.CharField(max_length=50)

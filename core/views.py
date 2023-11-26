@@ -39,6 +39,59 @@ def registro(request):
     return render(request, 'registration/registro.html',data)
 
 
+def addinstructor(request):
+    if request.method == 'POST':
+        form = InstructorForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect(to="index") 
+    else:
+        form = InstructorForm()
+    return render(request, 'core/addinstructor.html', {'form': form})
+
+
+def addadultomayor(request):
+    return render(request, 'core/addadultomayor.html')
+
+
+def materiales(request):
+    return render(request, 'core/materiales.html')
+
+def sala(request):
+    return render(request, 'core/materiales.html')
+
+
+def addtalleres(request):
+    return render(request, 'core/addtalleres.html')
+
+def postulaciontaller(request):
+    return render(request, 'core/postulaciontaller .html')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 def contacto(request):
     if request.method == 'POST':
@@ -110,8 +163,6 @@ def menu(request):
         'productos' : productosAll
     }
     return render(request, 'core/menu.html', data)
-
-
 
 
 

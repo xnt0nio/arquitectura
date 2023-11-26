@@ -3,6 +3,8 @@ from django.forms import ModelForm
 from .models import *
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
+
+
 class ProductoForm(ModelForm):
 
     nombre = forms.CharField(min_length=1,widget=forms.TextInput(attrs={"placeholder":"Ingrese Nombre"}))
@@ -27,3 +29,62 @@ class CustomUserCreationForm(UserCreationForm):
     class Meta:
         model = User
         fields = ['username', "first_name", "last_name", "email", "password1", "password2"]
+
+
+
+
+
+class MunicipalidadForm(forms.ModelForm):
+    class Meta:
+        model = Municipalidad
+        fields = '__all__'
+
+class PagoForm(forms.ModelForm):
+    class Meta:
+        model = pago
+        fields = '__all__'
+
+class AdultoMayorForm(forms.ModelForm):
+    class Meta:
+        model = adulto_mayor
+        fields = '__all__'
+
+class InstructorForm(forms.ModelForm):
+    class Meta:
+        model = instructor
+        fields = '__all__'
+
+class MaterialesForm(forms.ModelForm):
+    class Meta:
+        model = materiales
+        fields = '__all__'
+
+class TalleresForm(forms.ModelForm):
+    class Meta:
+        model = talleres
+        fields = '__all__'
+
+class SalaForm(forms.ModelForm):
+    class Meta:
+        model = sala
+        fields = '__all__'
+
+class BonoForm(forms.ModelForm):
+    class Meta:
+        model = bono
+        fields = '__all__'
+
+class PostulacionTallerForm(forms.ModelForm):
+    class Meta:
+        model = postulacion_taller
+        fields = '__all__'
+
+class UsuarioForm(forms.ModelForm):
+    class Meta:
+        model = usuario
+        fields = '__all__'
+
+class PostulacionInstructorForm(forms.ModelForm):
+    class Meta:
+        model = postulacion_instructor
+        fields = '__all__'
