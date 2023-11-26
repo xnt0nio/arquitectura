@@ -166,14 +166,14 @@ def addMuni(request):
 
 
 
-
-def addMuni(request):
+#8
+def addpago(request):
     data = {
-        'form' : MunicipalidadForm()
+        'form' : PagoForm()
     }
 
     if request.method == 'POST':
-        formulario = MunicipalidadForm(request.POST, files=request.FILES) 
+        formulario = PagoForm(request.POST, files=request.FILES) 
         if formulario.is_valid():
             formulario.save() 
             
@@ -181,14 +181,14 @@ def addMuni(request):
     return render(request, 'core/addMuni.html', data)       
   
 
-
-def addMuni(request):
+#9
+def addbono(request):
     data = {
-        'form' : MunicipalidadForm()
+        'form' : BonoForm()
     }
 
     if request.method == 'POST':
-        formulario = MunicipalidadForm(request.POST, files=request.FILES) 
+        formulario = BonoForm(request.POST, files=request.FILES) 
         if formulario.is_valid():
             formulario.save() 
             
@@ -196,14 +196,14 @@ def addMuni(request):
     return render(request, 'core/addMuni.html', data)       
 
 
-
-def addMuni(request):
+#10
+def addusuario(request):
     data = {
-        'form' : MunicipalidadForm()
+        'form' : UsuarioForm()
     }
 
     if request.method == 'POST':
-        formulario = MunicipalidadForm(request.POST, files=request.FILES) 
+        formulario = UsuarioForm(request.POST, files=request.FILES) 
         if formulario.is_valid():
             formulario.save() 
             
@@ -211,14 +211,14 @@ def addMuni(request):
     return render(request, 'core/addMuni.html', data)       
 
 
-
-def addMuni(request):
+#11
+def addcredencial(request):
     data = {
-        'form' : MunicipalidadForm()
+        'form' : CredencialesForm()
     }
 
     if request.method == 'POST':
-        formulario = MunicipalidadForm(request.POST, files=request.FILES) 
+        formulario = CredencialesForm(request.POST, files=request.FILES) 
         if formulario.is_valid():
             formulario.save() 
             
@@ -226,14 +226,14 @@ def addMuni(request):
     return render(request, 'core/addMuni.html', data)       
 
 
-
-def addMuni(request):
+#12
+def addPostulacionInstructor(request):
     data = {
-        'form' : MunicipalidadForm()
+        'form' : PostulacionInstructorForm()
     }
 
     if request.method == 'POST':
-        formulario = MunicipalidadForm(request.POST, files=request.FILES) 
+        formulario = PostulacionInstructorForm(request.POST, files=request.FILES) 
         if formulario.is_valid():
             formulario.save() 
             

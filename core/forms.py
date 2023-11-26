@@ -88,3 +88,8 @@ class PostulacionInstructorForm(forms.ModelForm):
     class Meta:
         model = postulacion_instructor
         fields = '__all__'
+
+class CredencialesForm(forms.ModelForm):
+    class Meta:
+        model = credencial
+        fields = '__all__'        

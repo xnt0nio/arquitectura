@@ -13,13 +13,24 @@ urlpatterns = [
     
   
     #de arquitectura
-    path('addMuni', addMuni, name="addMuni"), 
     path('addinstructor', addinstructor, name='addinstructor'),
     path('addadultomayor', addadultomayor, name='addadultomayor'),
     path('materiales', materiales, name='materiales'),
-    path('sala', sala, name='sala'),
+    path('sala', sala, name='sala'), 
     path('addtalleres', addtalleres, name='addtalleres'),
     path('postulaciontaller', postulaciontaller, name='postulaciontaller'),
+    path('addMuni', addMuni, name="addMuni"),
+    path('addpago', addpago, name="addpago"),
+    path('addbono', addbono, name="addbono"),
+    path('addusuario', addusuario, name="addusuario"),
+    path('addcredencial', addcredencial, name="addcredencial"),
+    path('addPostulacionInstructor', addPostulacionInstructor, name="addPostulacionInstructor"),
+    
+    
+    
+    
+    
+    
 
 
 
