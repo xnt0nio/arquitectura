@@ -59,6 +59,10 @@ def index(request):
 
 
 
+def addMuni(request):
+    return render(request, 'core/addMuni.html')
+
+
 def comentarios(request):
     comentario = ContactForm.objects.all()
     page_number = request.GET.get('page', 1)
@@ -143,7 +147,7 @@ def adm(request):
     return render(request, 'core/adm.html', data)
 
 
-@grupo_requerido('vendedor')
+
 def add(request):
     data = {
         'form' : ProductoForm()

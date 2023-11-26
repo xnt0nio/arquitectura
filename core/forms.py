@@ -15,6 +15,7 @@ class ProductoForm(ModelForm):
         model = Producto
         fields = '__all__'
 
+
 class Contacto(forms.ModelForm):
     class Meta:
         model = ContactForm
