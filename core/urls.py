@@ -8,6 +8,7 @@ urlpatterns = [
     path('menu', menu, name="menu"),  
     path('adm', adm, name="adm"),  
     path('add', add, name="add"),  
+    path('addMuni', addMuni, name="addMuni"),  
     path('comentarios', comentarios, name="comentarios"),  
     path('update/<id>/', update, name="update"),
     path('delete/<id>/', delete, name="delete"),
