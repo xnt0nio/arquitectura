@@ -6,8 +6,8 @@ from django.contrib import messages
 from django.shortcuts import redirect
 from django.core.paginator import Paginator
 from django.contrib.auth.decorators import user_passes_test
-
-
+from django.contrib.auth import authenticate, login
+from django.contrib.auth.models import Group
 
 
 
@@ -18,6 +18,78 @@ def grupo_requerido(nombre_grupo):
             return view_fuc(request, *arg, **kwargs)
         return wrapper
     return decorator
+
+
+def registro(request):
+    data = {
+        'form': CustomUserCreationForm()
+    }
+    if request.method == 'POST':
+        formulario = CustomUserCreationForm(data=request.POST)
+        if formulario.is_valid():
+            formulario.save()
+            user = authenticate(username=formulario.cleaned_data["username"], password=formulario.cleaned_data["password1"])
+            grupo = Group.objects.get(name="usuario")
+            user.groups.add(grupo)
+            login(request, user)
+            messages.success(request, "Te has registrado correctamente")
+            #redirigir al home
+            return redirect(to="index")
+        data["form"] = formulario    
+    return render(request, 'registration/registro.html',data)
+
+
+def addinstructor(request):
+    if request.method == 'POST':
+        form = InstructorForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect(to="index") 
+    else:
+        form = InstructorForm()
+    return render(request, 'core/addinstructor.html', {'form': form})
+
+
+def addadultomayor(request):
+    return render(request, 'core/addadultomayor.html')
+
+
+def materiales(request):
+    return render(request, 'core/materiales.html')
+
+def sala(request):
+    return render(request, 'core/materiales.html')
+
+
+def addtalleres(request):
+    return render(request, 'core/addtalleres.html')
+
+def postulaciontaller(request):
+    return render(request, 'core/postulaciontaller .html')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -38,6 +110,10 @@ def contacto(request):
 def index(request):
     return render(request, 'core/index.html')
 
+
+
+def addMuni(request):
+    return render(request, 'core/addMuni.html')
 
 
 def comentarios(request):
@@ -90,8 +166,6 @@ def menu(request):
 
 
 
-
-
 @grupo_requerido('vendedor')
 def adm(request):
     productosAll = Producto.objects.all() 
@@ -124,7 +198,7 @@ def adm(request):
     return render(request, 'core/adm.html', data)
 
 
-@grupo_requerido('vendedor')
+
 def add(request):
     data = {
         'form' : ProductoForm()
