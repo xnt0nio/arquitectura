@@ -29,6 +29,7 @@ urlpatterns = [
     
     
     path('listar', listar, name='listar'),
+    #los 12 listar aqui
     
     
     path('updateinstructor/<id>/', updateinstructor, name="updateinstructor"),
@@ -46,7 +47,7 @@ urlpatterns = [
     
     
 
-
+   #los eliminar aqui
 
 
 
