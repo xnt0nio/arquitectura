@@ -10,11 +10,11 @@ urlpatterns = [
     path('nodisponible', nodisponible, name="nodisponible"),  
     path('registro/', registro, name='registro'),
     path('addinstructor', addinstructor, name='addinstructor'),
-    path('addadultomayor/', addadultomayor, name='addadultomayor'),
-    path('materiales/', materiales, name='materiales'),
-    path('sala/', sala, name='sala'),
-    path('addtalleres/', addtalleres, name='addtalleres'),
-    path('postulaciontaller/', postulaciontaller, name='postulaciontaller'),
+    path('addadultomayor', addadultomayor, name='addadultomayor'),
+    path('materiales', materiales, name='materiales'),
+    path('sala', sala, name='sala'),
+    path('addtalleres', addtalleres, name='addtalleres'),
+    path('postulaciontaller', postulaciontaller, name='postulaciontaller'),
 
 
 
@@ -27,6 +27,10 @@ urlpatterns = [
     path('delete/<id>/', delete, name="delete"),
     path('deleteComent/<id>/', deleteComent, name="deleteComent"),
 ]
+
+
+
+
 
 urlpatterns += [
     path('<path:invalid_path>', nodisponible, name="error404"),

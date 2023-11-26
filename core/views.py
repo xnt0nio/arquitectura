@@ -39,34 +39,124 @@ def registro(request):
     return render(request, 'registration/registro.html',data)
 
 
+
+
+
 def addinstructor(request):
+    data = {
+        'form' : InstructorForm()
+    }
+
     if request.method == 'POST':
-        form = InstructorForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect(to="index") 
-    else:
-        form = InstructorForm()
-    return render(request, 'core/addinstructor.html', {'form': form})
+        formulario = InstructorForm(request.POST, files=request.FILES) 
+        if formulario.is_valid():
+            formulario.save() 
+            
+            messages.success(request, "Producto almacenado correctamente")
+    return render(request, 'core/addinstructor.html', data)
+
+
 
 
 def addadultomayor(request):
-    return render(request, 'core/addadultomayor.html')
+    data = {
+        'form' : AdultoMayorForm()
+    }
+
+    if request.method == 'POST':
+        formulario = AdultoMayorForm(request.POST, files=request.FILES) 
+        if formulario.is_valid():
+            formulario.save() 
+            
+            messages.success(request, "Producto almacenado correctamente")
+    return render(request, 'core/addadultomayor.html', data)
+
+
+
+
+
 
 
 def materiales(request):
-    return render(request, 'core/materiales.html')
+    data = {
+        'form' : MaterialesForm()
+    }
+
+    if request.method == 'POST':
+        formulario = MaterialesForm(request.POST, files=request.FILES) 
+        if formulario.is_valid():
+            formulario.save() 
+            
+            messages.success(request, "Producto almacenado correctamente")    
+    return render(request, 'core/materiales.html', data)
+
+
+
+
 
 def sala(request):
-    return render(request, 'core/materiales.html')
+    data = {
+        'form' : SalaForm()
+    }
+
+    if request.method == 'POST':
+        formulario = SalaForm(request.POST, files=request.FILES) 
+        if formulario.is_valid():
+            formulario.save() 
+            
+            messages.success(request, "Producto almacenado correctamente")      
+    return render(request, 'core/materiales.html', data)
+
+
+
+
 
 
 def addtalleres(request):
-    return render(request, 'core/addtalleres.html')
+    data = {
+        'form' : TalleresForm()
+    }
+
+    if request.method == 'POST':
+        formulario = TalleresForm(request.POST, files=request.FILES) 
+        if formulario.is_valid():
+            formulario.save() 
+            
+            messages.success(request, "Producto almacenado correctamente")      
+    return render(request, 'core/addtalleres.html', data)    
+
 
 def postulaciontaller(request):
-    return render(request, 'core/postulaciontaller .html')
+    data = {
+        'form' : PostulacionTallerForm()
+    }
 
+    if request.method == 'POST':
+        formulario = PostulacionTallerForm(request.POST, files=request.FILES) 
+        if formulario.is_valid():
+            formulario.save() 
+            
+            messages.success(request, "Producto almacenado correctamente")      
+    return render(request, 'core/postulaciontaller.html', data)   
+
+
+
+
+
+
+def addMuni(request):
+    data = {
+        'form' : MunicipalidadForm()
+    }
+
+    if request.method == 'POST':
+        formulario = MunicipalidadForm(request.POST, files=request.FILES) 
+        if formulario.is_valid():
+            formulario.save() 
+            
+            messages.success(request, "Producto almacenado correctamente")      
+    return render(request, 'core/addMuni.html', data)       
+  
 
 
 
@@ -111,9 +201,6 @@ def index(request):
     return render(request, 'core/index.html')
 
 
-
-def addMuni(request):
-    return render(request, 'core/addMuni.html')
 
 
 def comentarios(request):
