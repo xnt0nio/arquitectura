@@ -42,6 +42,9 @@ def registro(request):
 
 
 
+#esto son solo los add
+
+#1
 def addinstructor(request):
     data = {
         'form' : InstructorForm()
@@ -57,7 +60,7 @@ def addinstructor(request):
 
 
 
-
+#2
 def addadultomayor(request):
     data = {
         'form' : AdultoMayorForm()
@@ -76,7 +79,7 @@ def addadultomayor(request):
 
 
 
-
+#3
 def materiales(request):
     data = {
         'form' : MaterialesForm()
@@ -93,7 +96,7 @@ def materiales(request):
 
 
 
-
+#4
 def sala(request):
     data = {
         'form' : SalaForm()
@@ -111,7 +114,7 @@ def sala(request):
 
 
 
-
+#5
 def addtalleres(request):
     data = {
         'form' : TalleresForm()
@@ -120,12 +123,14 @@ def addtalleres(request):
     if request.method == 'POST':
         formulario = TalleresForm(request.POST, files=request.FILES) 
         if formulario.is_valid():
-            formulario.save() 
-            
+            formulario.save()
+     
             messages.success(request, "Producto almacenado correctamente")      
     return render(request, 'core/addtalleres.html', data)    
 
 
+
+#6
 def postulaciontaller(request):
     data = {
         'form' : PostulacionTallerForm()
@@ -139,6 +144,24 @@ def postulaciontaller(request):
             messages.success(request, "Producto almacenado correctamente")      
     return render(request, 'core/postulaciontaller.html', data)   
 
+
+
+
+
+#7
+def addMuni(request):
+    data = {
+        'form' : MunicipalidadForm()
+    }
+
+    if request.method == 'POST':
+        formulario = MunicipalidadForm(request.POST, files=request.FILES) 
+        if formulario.is_valid():
+            formulario.save() 
+            
+            messages.success(request, "Producto almacenado correctamente")      
+    return render(request, 'core/addMuni.html', data)       
+  
 
 
 
@@ -159,10 +182,64 @@ def addMuni(request):
   
 
 
+def addMuni(request):
+    data = {
+        'form' : MunicipalidadForm()
+    }
+
+    if request.method == 'POST':
+        formulario = MunicipalidadForm(request.POST, files=request.FILES) 
+        if formulario.is_valid():
+            formulario.save() 
+            
+            messages.success(request, "Producto almacenado correctamente")      
+    return render(request, 'core/addMuni.html', data)       
 
 
 
+def addMuni(request):
+    data = {
+        'form' : MunicipalidadForm()
+    }
 
+    if request.method == 'POST':
+        formulario = MunicipalidadForm(request.POST, files=request.FILES) 
+        if formulario.is_valid():
+            formulario.save() 
+            
+            messages.success(request, "Producto almacenado correctamente")      
+    return render(request, 'core/addMuni.html', data)       
+
+
+
+def addMuni(request):
+    data = {
+        'form' : MunicipalidadForm()
+    }
+
+    if request.method == 'POST':
+        formulario = MunicipalidadForm(request.POST, files=request.FILES) 
+        if formulario.is_valid():
+            formulario.save() 
+            
+            messages.success(request, "Producto almacenado correctamente")      
+    return render(request, 'core/addMuni.html', data)       
+
+
+
+def addMuni(request):
+    data = {
+        'form' : MunicipalidadForm()
+    }
+
+    if request.method == 'POST':
+        formulario = MunicipalidadForm(request.POST, files=request.FILES) 
+        if formulario.is_valid():
+            formulario.save() 
+            
+            messages.success(request, "Producto almacenado correctamente")      
+    return render(request, 'core/addMuni.html', data)       
+          
 
 
 
@@ -253,7 +330,7 @@ def menu(request):
 
 
 
-@grupo_requerido('vendedor')
+
 def adm(request):
     productosAll = Producto.objects.all() 
     tipos_productos = TipoProducto.objects.all()
@@ -300,7 +377,7 @@ def add(request):
     return render(request, 'core/add-product.html', data)
 
 
-@grupo_requerido('vendedor')
+
 def update(request, id):
     producto = Producto.objects.get(id=id)
     data = {
@@ -318,7 +395,7 @@ def update(request, id):
 
 
 
-@grupo_requerido('admin')
+
 def delete(request, id):
     producto = Producto.objects.get(id=id) 
     producto.delete()
