@@ -1,5 +1,6 @@
-from django.http import HttpResponse
-from django.shortcuts import render,redirect
+from audioop import reverse
+from django.http import HttpResponse, HttpResponseRedirect
+from django.shortcuts import get_object_or_404, render,redirect
 from .models import *
 from .forms import * 
 from django.contrib import messages
@@ -851,3 +852,89 @@ def updateinstructor(request, id):
 
 
 #los delete aqui abajo son 12
+def eliminar_instructor(request, id):
+    inst_instructor = get_object_or_404(instructor, id=id)
+    if request.method == 'POST':
+        inst_instructor.delete()
+        return HttpResponseRedirect(reverse('listar'))
+    return render(request, 'core/listar.html', {'elemento': inst_instructor})
+
+
+def eliminar_adultomayor(request, id):
+    inst_adulto = get_object_or_404(adulto_mayor, id=id)
+    if request.method == 'POST':
+        inst_adulto.delete()
+        return HttpResponseRedirect(reverse('listar'))
+    return render(request, 'core/listar.html', {'elemento': inst_adulto})
+
+def eliminar_materiales(request, id):
+    inst_materiales = get_object_or_404(Materiales, id=id)
+    if request.method == 'POST':
+        inst_materiales.delete()
+        return HttpResponseRedirect(reverse('listar'))
+    return render(request, 'core/listar.html', {'elemento': inst_materiales})
+
+def eliminar_sala(request, id):
+    inst_sala = get_object_or_404(Sala, id=id)
+    if request.method == 'POST':
+        inst_sala.delete()
+        return HttpResponseRedirect(reverse('listar'))
+    return render(request, 'core/listar.html', {'elemento': inst_sala})
+
+
+def eliminar_talleres(request, id):
+    inst_talleres = get_object_or_404(Talleres, id=id)
+    if request.method == 'POST':
+        inst_talleres.delete()
+        return HttpResponseRedirect(reverse('listar'))
+    return render(request, 'core/listar.html', {'elemento': inst_talleres})
+
+def eliminar_postulaciontaller(request, id):
+    inst_posttaller = get_object_or_404(postulacion_taller, id=id)
+    if request.method == 'POST':
+        inst_posttaller.delete()
+        return HttpResponseRedirect(reverse('listar'))
+    return render(request, 'core/listar.html', {'elemento': inst_posttaller})
+
+def eliminar_Muni(request, id):
+    inst_muni = get_object_or_404(Municipalidad, id=id)
+    if request.method == 'POST':
+        inst_muni.delete()
+        return HttpResponseRedirect(reverse('listar'))
+    return render(request, 'core/listar.html', {'elemento': inst_muni})
+
+def eliminar_pago(request, id):
+    inst_pago = get_object_or_404(pago, id=id)
+    if request.method == 'POST':
+        inst_pago.delete()
+        return HttpResponseRedirect(reverse('listar'))
+    return render(request, 'core/listar.html', {'elemento': inst_pago})
+
+def eliminar_bono(request, id):
+    inst_bono = get_object_or_404(bono, id=id)
+    if request.method == 'POST':
+        inst_bono.delete()
+        return HttpResponseRedirect(reverse('listar'))
+    return render(request, 'core/listar.html', {'elemento': inst_bono})
+
+def eliminar_postulacioninstructor(request, id):
+    inst_postinst = get_object_or_404(postulacion_instructor, id=id)
+    if request.method == 'POST':
+        inst_postinst.delete()
+        return HttpResponseRedirect(reverse('listar'))
+    return render(request, 'core/listar.html', {'elemento': inst_postinst})
+
+def eliminar_usuario(request, id):
+    inst_usuario = get_object_or_404(usuario, id=id)
+    if request.method == 'POST':
+        inst_usuario.delete()
+        return HttpResponseRedirect(reverse('listar'))
+    return render(request, 'core/listar.html', {'elemento': inst_usuario})
+
+def eliminar_credencial(request, id):
+    inst_credencial = get_object_or_404(credencial, id=id)
+    if request.method == 'POST':
+        inst_credencial.delete()
+        return HttpResponseRedirect(reverse('listar'))
+    return render(request, 'core/listar.html', {'elemento': inst_credencial})
+

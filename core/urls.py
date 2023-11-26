@@ -48,6 +48,18 @@ urlpatterns = [
     
 
    #los eliminar aqui
+    path('eliminar_instructor/<int:id>/', eliminar_instructor, name='eliminar_instructor'),
+    path('eliminar_adultomayor/<int:id>/', eliminar_adultomayor, name='eliminar_adultomayor'),
+    path('eliminar_materiales/<int:id>/', eliminar_materiales, name='eliminar_materiales'),
+    path('eliminar_sala/<int:id>/', eliminar_sala, name='eliminar_sala'),
+    path('eliminar_talleres/<int:id>/', eliminar_talleres, name='eliminar_talleres'),
+    path('eliminar_postulaciontaller/<int:id>/', eliminar_postulaciontaller, name='eliminar_postulaciontaller'),
+    path('eliminar_Muni/<int:id>/', eliminar_Muni, name='eliminar_Muni'),
+    path('eliminar_pago/<int:id>/', eliminar_pago, name='eliminar_pago'),
+    path('eliminar_bono/<int:id>/', eliminar_bono, name='eliminar_bono'),
+    path('eliminar_usuario/<int:id>/', eliminar_usuario, name='eliminar_usuario'),
+    path('eliminar_credencial/<int:id>/', eliminar_credencial, name='eliminar_credencial'),
+    path('eliminar_postulacioninstructor/<int:id>/', eliminar_postulacioninstructor, name='eliminar_postulacioninstructor'),
 
 
 
