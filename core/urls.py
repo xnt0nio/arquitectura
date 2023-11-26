@@ -28,6 +28,9 @@ urlpatterns = [
     
     
     
+    path('listar', listar, name='listar'),
+    
+    
     path('updateinstructor/<id>/', updateinstructor, name="updateinstructor"),
     path('updateadultomayor/<id>/', updateadultomayor, name="updateadultomayor"),
     path('updatemateriales/<id>/', updatemateriales, name="updatemateriales"),
@@ -41,6 +44,8 @@ urlpatterns = [
     path('updatecredencial/<id>/', updatecredencial, name="updatecredencial"),
     path('updatepostulacioninstructor/<id>/', updatepostulacioninstructor, name="updatepostulacioninstructor"),
     
+    
+
 
 
 

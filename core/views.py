@@ -242,6 +242,35 @@ def addPostulacionInstructor(request):
           
 
 
+#listar
+def listar(request):
+    instructores = instructor.objects.all()
+    adultos_mayores = adulto_mayor.objects.all()
+    materiales = Materiales.objects.all()
+    sala = Sala.objects.all()
+    talleres = Talleres.objects.all()
+    postulaciones_taller = postulacion_taller.objects.all()
+    municipalidades = Municipalidad.objects.all()
+    pagos = pago.objects.all()
+    bonos = bono.objects.all()
+    usuarios = usuario.objects.all()
+    credenciales = credencial.objects.all()
+    postulaciones_instructor = postulacion_instructor.objects.all()
+
+    return render(request, 'core/listar.html', {
+        'instructores': instructores,
+        'adultos_mayores': adultos_mayores,
+        'materiales': materiales,
+        'sala': sala,
+        'tallere': talleres,
+        'postulaciones_taller': postulaciones_taller,
+        'municipalidades': municipalidades,
+        'pagos': pagos,
+        'bonos': bonos,
+        'usuarios': usuarios,
+        'credenciales': credenciales,
+        'postulaciones_instructor': postulaciones_instructor,
+    })
 
 
 
