@@ -40,6 +40,226 @@ def registro(request):
 
 
 
+
+
+#esto son solo los add
+
+#1
+def addinstructor(request):
+    data = {
+        'form' : InstructorForm()
+    }
+
+    if request.method == 'POST':
+        formulario = InstructorForm(request.POST, files=request.FILES) 
+        if formulario.is_valid():
+            formulario.save() 
+            
+            messages.success(request, "Producto almacenado correctamente")
+    return render(request, 'core/addinstructor.html', data)
+
+
+
+#2
+def addadultomayor(request):
+    data = {
+        'form' : AdultoMayorForm()
+    }
+
+    if request.method == 'POST':
+        formulario = AdultoMayorForm(request.POST, files=request.FILES) 
+        if formulario.is_valid():
+            formulario.save() 
+            
+            messages.success(request, "Producto almacenado correctamente")
+    return render(request, 'core/addadultomayor.html', data)
+
+
+
+
+
+
+#3
+def materiales(request):
+    data = {
+        'form' : MaterialesForm()
+    }
+
+    if request.method == 'POST':
+        formulario = MaterialesForm(request.POST, files=request.FILES) 
+        if formulario.is_valid():
+            formulario.save() 
+            
+            messages.success(request, "Producto almacenado correctamente")    
+    return render(request, 'core/materiales.html', data)
+
+
+
+
+#4
+def sala(request):
+    data = {
+        'form' : SalaForm()
+    }
+
+    if request.method == 'POST':
+        formulario = SalaForm(request.POST, files=request.FILES) 
+        if formulario.is_valid():
+            formulario.save() 
+            
+            messages.success(request, "Producto almacenado correctamente")      
+    return render(request, 'core/materiales.html', data)
+
+
+
+
+
+#5
+def addtalleres(request):
+    data = {
+        'form' : TalleresForm()
+    }
+
+    if request.method == 'POST':
+        formulario = TalleresForm(request.POST, files=request.FILES) 
+        if formulario.is_valid():
+            formulario.save()
+     
+            messages.success(request, "Producto almacenado correctamente")      
+    return render(request, 'core/addtalleres.html', data)    
+
+
+
+#6
+def postulaciontaller(request):
+    data = {
+        'form' : PostulacionTallerForm()
+    }
+
+    if request.method == 'POST':
+        formulario = PostulacionTallerForm(request.POST, files=request.FILES) 
+        if formulario.is_valid():
+            formulario.save() 
+            
+            messages.success(request, "Producto almacenado correctamente")      
+    return render(request, 'core/postulaciontaller.html', data)   
+
+
+
+
+
+#7
+def addMuni(request):
+    data = {
+        'form' : MunicipalidadForm()
+    }
+
+    if request.method == 'POST':
+        formulario = MunicipalidadForm(request.POST, files=request.FILES) 
+        if formulario.is_valid():
+            formulario.save() 
+            
+            messages.success(request, "Producto almacenado correctamente")      
+    return render(request, 'core/addMuni.html', data)       
+  
+
+
+
+
+
+def addMuni(request):
+    data = {
+        'form' : MunicipalidadForm()
+    }
+
+    if request.method == 'POST':
+        formulario = MunicipalidadForm(request.POST, files=request.FILES) 
+        if formulario.is_valid():
+            formulario.save() 
+            
+            messages.success(request, "Producto almacenado correctamente")      
+    return render(request, 'core/addMuni.html', data)       
+  
+
+
+def addMuni(request):
+    data = {
+        'form' : MunicipalidadForm()
+    }
+
+    if request.method == 'POST':
+        formulario = MunicipalidadForm(request.POST, files=request.FILES) 
+        if formulario.is_valid():
+            formulario.save() 
+            
+            messages.success(request, "Producto almacenado correctamente")      
+    return render(request, 'core/addMuni.html', data)       
+
+
+
+def addMuni(request):
+    data = {
+        'form' : MunicipalidadForm()
+    }
+
+    if request.method == 'POST':
+        formulario = MunicipalidadForm(request.POST, files=request.FILES) 
+        if formulario.is_valid():
+            formulario.save() 
+            
+            messages.success(request, "Producto almacenado correctamente")      
+    return render(request, 'core/addMuni.html', data)       
+
+
+
+def addMuni(request):
+    data = {
+        'form' : MunicipalidadForm()
+    }
+
+    if request.method == 'POST':
+        formulario = MunicipalidadForm(request.POST, files=request.FILES) 
+        if formulario.is_valid():
+            formulario.save() 
+            
+            messages.success(request, "Producto almacenado correctamente")      
+    return render(request, 'core/addMuni.html', data)       
+
+
+
+def addMuni(request):
+    data = {
+        'form' : MunicipalidadForm()
+    }
+
+    if request.method == 'POST':
+        formulario = MunicipalidadForm(request.POST, files=request.FILES) 
+        if formulario.is_valid():
+            formulario.save() 
+            
+            messages.success(request, "Producto almacenado correctamente")      
+    return render(request, 'core/addMuni.html', data)       
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 def contacto(request):
     if request.method == 'POST':
         form = Contacto(request.POST)
@@ -58,9 +278,6 @@ def index(request):
     return render(request, 'core/index.html')
 
 
-
-def addMuni(request):
-    return render(request, 'core/addMuni.html')
 
 
 def comentarios(request):
@@ -114,8 +331,6 @@ def menu(request):
 
 
 
-
-@grupo_requerido('vendedor')
 def adm(request):
     productosAll = Producto.objects.all() 
     tipos_productos = TipoProducto.objects.all()
@@ -162,7 +377,7 @@ def add(request):
     return render(request, 'core/add-product.html', data)
 
 
-@grupo_requerido('vendedor')
+
 def update(request, id):
     producto = Producto.objects.get(id=id)
     data = {
@@ -180,7 +395,7 @@ def update(request, id):
 
 
 
-@grupo_requerido('admin')
+
 def delete(request, id):
     producto = Producto.objects.get(id=id) 
     producto.delete()
