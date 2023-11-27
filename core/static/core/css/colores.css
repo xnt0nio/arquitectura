@@ -8,7 +8,7 @@
 .ov-btn-grow-ellipse {
     background: #fcdfae50;
     color: #3e2514; 
-    border: 2px solid #3e2514;
+    border: 2px solid #F3BD00;
     padding: 16px 20px;
     border-radius: 3px;
     position: relative;
@@ -18,13 +18,13 @@
 }
 
 .ov-btn-grow-ellipse:hover {
-    color: #e2d2d2;
+    color: #574401;
   
 }
 
 .ov-btn-grow-ellipse::after {
     content: "";
-    background: #b4832d50;    
+    background: #cec498;    
     position: absolute;
     z-index: -1;
     padding: 16px 20px;

@@ -132,6 +132,7 @@ def addtalleres(request):
 
 
 #6
+@grupo_requerido('adultomayor')
 def postulaciontaller(request):
     if request.method == 'POST':
         print(request.POST)  # Imprime los datos del formulario en la consola
