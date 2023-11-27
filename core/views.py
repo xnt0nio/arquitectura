@@ -1,5 +1,6 @@
-from django.http import HttpResponse
-from django.shortcuts import render,redirect
+from audioop import reverse
+from django.http import HttpResponse, HttpResponseRedirect
+from django.shortcuts import get_object_or_404, render,redirect
 from .models import *
 from .forms import * 
 from django.contrib import messages
@@ -166,14 +167,14 @@ def addMuni(request):
 
 
 
-
-def addMuni(request):
+#8
+def addpago(request):
     data = {
-        'form' : MunicipalidadForm()
+        'form' : PagoForm()
     }
 
     if request.method == 'POST':
-        formulario = MunicipalidadForm(request.POST, files=request.FILES) 
+        formulario = PagoForm(request.POST, files=request.FILES) 
         if formulario.is_valid():
             formulario.save() 
             
@@ -181,14 +182,14 @@ def addMuni(request):
     return render(request, 'core/addMuni.html', data)       
   
 
-
-def addMuni(request):
+#9
+def addbono(request):
     data = {
-        'form' : MunicipalidadForm()
+        'form' : BonoForm()
     }
 
     if request.method == 'POST':
-        formulario = MunicipalidadForm(request.POST, files=request.FILES) 
+        formulario = BonoForm(request.POST, files=request.FILES) 
         if formulario.is_valid():
             formulario.save() 
             
@@ -196,14 +197,14 @@ def addMuni(request):
     return render(request, 'core/addMuni.html', data)       
 
 
-
-def addMuni(request):
+#10
+def addusuario(request):
     data = {
-        'form' : MunicipalidadForm()
+        'form' : UsuarioForm()
     }
 
     if request.method == 'POST':
-        formulario = MunicipalidadForm(request.POST, files=request.FILES) 
+        formulario = UsuarioForm(request.POST, files=request.FILES) 
         if formulario.is_valid():
             formulario.save() 
             
@@ -211,14 +212,14 @@ def addMuni(request):
     return render(request, 'core/addMuni.html', data)       
 
 
-
-def addMuni(request):
+#11
+def addcredencial(request):
     data = {
-        'form' : MunicipalidadForm()
+        'form' : CredencialesForm()
     }
 
     if request.method == 'POST':
-        formulario = MunicipalidadForm(request.POST, files=request.FILES) 
+        formulario = CredencialesForm(request.POST, files=request.FILES) 
         if formulario.is_valid():
             formulario.save() 
             
@@ -226,20 +227,190 @@ def addMuni(request):
     return render(request, 'core/addMuni.html', data)       
 
 
-
-def addMuni(request):
+#12
+def addPostulacionInstructor(request):
     data = {
-        'form' : MunicipalidadForm()
+        'form' : PostulacionInstructorForm()
     }
 
     if request.method == 'POST':
-        formulario = MunicipalidadForm(request.POST, files=request.FILES) 
+        formulario = PostulacionInstructorForm(request.POST, files=request.FILES) 
         if formulario.is_valid():
             formulario.save() 
             
             messages.success(request, "Producto almacenado correctamente")      
     return render(request, 'core/addMuni.html', data)       
           
+
+
+#listar aqui son 12
+def listar(request):
+    instructores = instructor.objects.all()
+    adultos_mayores = adulto_mayor.objects.all()
+    materiales = Materiales.objects.all()
+    sala = Sala.objects.all()
+    talleres = Talleres.objects.all()
+    postulaciones_taller = postulacion_taller.objects.all()
+    municipalidades = Municipalidad.objects.all()
+    pagos = pago.objects.all()
+    bonos = bono.objects.all()
+    usuarios = usuario.objects.all()
+    credenciales = credencial.objects.all()
+    postulaciones_instructor = postulacion_instructor.objects.all()
+
+    return render(request, 'core/listar.html', {
+        'instructores': instructores,
+        'adultos_mayores': adultos_mayores,
+        'materiales': materiales,
+        'sala': sala,
+        'tallere': talleres,
+        'postulaciones_taller': postulaciones_taller,
+        'municipalidades': municipalidades,
+        'pagos': pagos,
+        'bonos': bonos,
+        'usuarios': usuarios,
+        'credenciales': credenciales,
+        'postulaciones_instructor': postulaciones_instructor,
+    })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#los listar aqui son 12 en total
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -407,3 +578,363 @@ def deleteComent(request, id):
     comentario = ContactForm.objects.get(id=id)
     comentario.delete()
     return redirect(to="comentarios")
+
+
+
+
+
+
+
+#1
+def updateinstructor(request, id):
+    instructor = instructor.objects.get(id=id)
+    data = {
+        'form' : InstructorForm(instance=instructor) 
+    }
+
+    if request.method == 'POST':
+        formulario = ProductoForm(data=request.POST, instance=producto, files=request.FILES)
+        if formulario.is_valid():
+            formulario.save()           
+            messages.success(request, "Producto modificado correctamente")
+            data['form'] = formulario 
+         
+    return render(request, 'core/update-product.html', data)    
+
+
+
+
+
+
+
+
+
+#2
+def updateinstructor(request, id):
+    instructor = instructor.objects.get(id=id)
+    data = {
+        'form' : InstructorForm(instance=instructor) 
+    }
+
+    if request.method == 'POST':
+        formulario = ProductoForm(data=request.POST, instance=producto, files=request.FILES)
+        if formulario.is_valid():
+            formulario.save()           
+            messages.success(request, "Producto modificado correctamente")
+            data['form'] = formulario 
+         
+    return render(request, 'core/update-product.html', data)
+
+
+
+
+
+
+
+
+#3
+def updateinstructor(request, id):
+    instructor = instructor.objects.get(id=id)
+    data = {
+        'form' : InstructorForm(instance=instructor) 
+    }
+
+    if request.method == 'POST':
+        formulario = ProductoForm(data=request.POST, instance=producto, files=request.FILES)
+        if formulario.is_valid():
+            formulario.save()           
+            messages.success(request, "Producto modificado correctamente")
+            data['form'] = formulario 
+         
+    return render(request, 'core/update-product.html', data)
+
+
+
+
+
+#4
+def updateinstructor(request, id):
+    instructor = instructor.objects.get(id=id)
+    data = {
+        'form' : InstructorForm(instance=instructor) 
+    }
+
+    if request.method == 'POST':
+        formulario = ProductoForm(data=request.POST, instance=producto, files=request.FILES)
+        if formulario.is_valid():
+            formulario.save()           
+            messages.success(request, "Producto modificado correctamente")
+            data['form'] = formulario 
+         
+    return render(request, 'core/update-product.html', data)      
+
+
+
+
+
+#5
+def updateinstructor(request, id):
+    instructor = instructor.objects.get(id=id)
+    data = {
+        'form' : InstructorForm(instance=instructor) 
+    }
+
+    if request.method == 'POST':
+        formulario = ProductoForm(data=request.POST, instance=producto, files=request.FILES)
+        if formulario.is_valid():
+            formulario.save()           
+            messages.success(request, "Producto modificado correctamente")
+            data['form'] = formulario 
+         
+    return render(request, 'core/update-product.html', data)
+
+
+
+
+
+
+
+
+
+
+#6
+def updateinstructor(request, id):
+    instructor = instructor.objects.get(id=id)
+    data = {
+        'form' : InstructorForm(instance=instructor) 
+    }
+
+    if request.method == 'POST':
+        formulario = ProductoForm(data=request.POST, instance=producto, files=request.FILES)
+        if formulario.is_valid():
+            formulario.save()           
+            messages.success(request, "Producto modificado correctamente")
+            data['form'] = formulario 
+         
+    return render(request, 'core/update-product.html', data)
+
+
+
+
+
+
+
+#7
+def updateinstructor(request, id):
+    instructor = instructor.objects.get(id=id)
+    data = {
+        'form' : InstructorForm(instance=instructor) 
+    }
+
+    if request.method == 'POST':
+        formulario = ProductoForm(data=request.POST, instance=producto, files=request.FILES)
+        if formulario.is_valid():
+            formulario.save()           
+            messages.success(request, "Producto modificado correctamente")
+            data['form'] = formulario 
+         
+    return render(request, 'core/update-product.html', data)    
+
+
+
+
+
+
+
+#7
+def updateinstructor(request, id):
+    instructor = instructor.objects.get(id=id)
+    data = {
+        'form' : InstructorForm(instance=instructor) 
+    }
+
+    if request.method == 'POST':
+        formulario = ProductoForm(data=request.POST, instance=producto, files=request.FILES)
+        if formulario.is_valid():
+            formulario.save()           
+            messages.success(request, "Producto modificado correctamente")
+            data['form'] = formulario 
+         
+    return render(request, 'core/update-product.html', data)  
+
+
+
+
+ #7
+def updateinstructor(request, id):
+    instructor = instructor.objects.get(id=id)
+    data = {
+        'form' : InstructorForm(instance=instructor) 
+    }
+
+    if request.method == 'POST':
+        formulario = ProductoForm(data=request.POST, instance=producto, files=request.FILES)
+        if formulario.is_valid():
+            formulario.save()           
+            messages.success(request, "Producto modificado correctamente")
+            data['form'] = formulario 
+         
+    return render(request, 'core/update-product.html', data)  
+
+
+
+#7
+def updateinstructor(request, id):
+    instructor = instructor.objects.get(id=id)
+    data = {
+        'form' : InstructorForm(instance=instructor) 
+    }
+
+    if request.method == 'POST':
+        formulario = ProductoForm(data=request.POST, instance=producto, files=request.FILES)
+        if formulario.is_valid():
+            formulario.save()           
+            messages.success(request, "Producto modificado correctamente")
+            data['form'] = formulario 
+         
+    return render(request, 'core/update-product.html', data)  
+
+
+
+#7
+def updateinstructor(request, id):
+    instructor = instructor.objects.get(id=id)
+    data = {
+        'form' : InstructorForm(instance=instructor) 
+    }
+
+    if request.method == 'POST':
+        formulario = ProductoForm(data=request.POST, instance=producto, files=request.FILES)
+        if formulario.is_valid():
+            formulario.save()           
+            messages.success(request, "Producto modificado correctamente")
+            data['form'] = formulario 
+         
+    return render(request, 'core/update-product.html', data)              
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#los delete aqui abajo son 12
+def eliminar_instructor(request, id):
+    inst_instructor = get_object_or_404(instructor, id=id)
+    if request.method == 'POST':
+        inst_instructor.delete()
+        return HttpResponseRedirect(reverse('listar'))
+    return render(request, 'core/listar.html', {'elemento': inst_instructor})
+
+
+def eliminar_adultomayor(request, id):
+    inst_adulto = get_object_or_404(adulto_mayor, id=id)
+    if request.method == 'POST':
+        inst_adulto.delete()
+        return HttpResponseRedirect(reverse('listar'))
+    return render(request, 'core/listar.html', {'elemento': inst_adulto})
+
+def eliminar_materiales(request, id):
+    inst_materiales = get_object_or_404(Materiales, id=id)
+    if request.method == 'POST':
+        inst_materiales.delete()
+        return HttpResponseRedirect(reverse('listar'))
+    return render(request, 'core/listar.html', {'elemento': inst_materiales})
+
+def eliminar_sala(request, id):
+    inst_sala = get_object_or_404(Sala, id=id)
+    if request.method == 'POST':
+        inst_sala.delete()
+        return HttpResponseRedirect(reverse('listar'))
+    return render(request, 'core/listar.html', {'elemento': inst_sala})
+
+
+def eliminar_talleres(request, id):
+    inst_talleres = get_object_or_404(Talleres, id=id)
+    if request.method == 'POST':
+        inst_talleres.delete()
+        return HttpResponseRedirect(reverse('listar'))
+    return render(request, 'core/listar.html', {'elemento': inst_talleres})
+
+def eliminar_postulaciontaller(request, id):
+    inst_posttaller = get_object_or_404(postulacion_taller, id=id)
+    if request.method == 'POST':
+        inst_posttaller.delete()
+        return HttpResponseRedirect(reverse('listar'))
+    return render(request, 'core/listar.html', {'elemento': inst_posttaller})
+
+def eliminar_Muni(request, id):
+    inst_muni = get_object_or_404(Municipalidad, id=id)
+    if request.method == 'POST':
+        inst_muni.delete()
+        return HttpResponseRedirect(reverse('listar'))
+    return render(request, 'core/listar.html', {'elemento': inst_muni})
+
+def eliminar_pago(request, id):
+    inst_pago = get_object_or_404(pago, id=id)
+    if request.method == 'POST':
+        inst_pago.delete()
+        return HttpResponseRedirect(reverse('listar'))
+    return render(request, 'core/listar.html', {'elemento': inst_pago})
+
+def eliminar_bono(request, id):
+    inst_bono = get_object_or_404(bono, id=id)
+    if request.method == 'POST':
+        inst_bono.delete()
+        return HttpResponseRedirect(reverse('listar'))
+    return render(request, 'core/listar.html', {'elemento': inst_bono})
+
+def eliminar_postulacioninstructor(request, id):
+    inst_postinst = get_object_or_404(postulacion_instructor, id=id)
+    if request.method == 'POST':
+        inst_postinst.delete()
+        return HttpResponseRedirect(reverse('listar'))
+    return render(request, 'core/listar.html', {'elemento': inst_postinst})
+
+def eliminar_usuario(request, id):
+    inst_usuario = get_object_or_404(usuario, id=id)
+    if request.method == 'POST':
+        inst_usuario.delete()
+        return HttpResponseRedirect(reverse('listar'))
+    return render(request, 'core/listar.html', {'elemento': inst_usuario})
+
+def eliminar_credencial(request, id):
+    inst_credencial = get_object_or_404(credencial, id=id)
+    if request.method == 'POST':
+        inst_credencial.delete()
+        return HttpResponseRedirect(reverse('listar'))
+    return render(request, 'core/listar.html', {'elemento': inst_credencial})
+

@@ -56,17 +56,17 @@ class InstructorForm(forms.ModelForm):
 
 class MaterialesForm(forms.ModelForm):
     class Meta:
-        model = materiales
+        model = Materiales
         fields = '__all__'
 
 class TalleresForm(forms.ModelForm):
     class Meta:
-        model = talleres
+        model = Talleres
         fields = '__all__'
 
 class SalaForm(forms.ModelForm):
     class Meta:
-        model = sala
+        model = Sala
         fields = '__all__'
 
 class BonoForm(forms.ModelForm):
@@ -88,3 +88,8 @@ class PostulacionInstructorForm(forms.ModelForm):
     class Meta:
         model = postulacion_instructor
         fields = '__all__'
+
+class CredencialesForm(forms.ModelForm):
+    class Meta:
+        model = credencial
+        fields = '__all__'        
