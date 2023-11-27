@@ -2,47 +2,34 @@
 {% load static %}
 {% load crispy_forms_tags %}
 {% block css %}
-
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 {% endblock %}
 {% block contenido %}
-
-<div class="container-fluid page-header py-6 my-6 mt-0 wow fadeIn" data-wow-delay="0.1s">
-    <div class="container text-center">
-    </div>
-</div>
-
-
-<div class="container">
-    <div class="row">
-        <div class="col-12 m-5">
-            <form action="" method="POST" enctype="multipart/form-data">
-                {% csrf_token %}
-                <table>
-                    {{ form | crispy }}
-                </table>
-                <button type="submit" class="ov-btn-grow-ellipse" style="margin: 30px ;">Añadir</button>
-            </form>
-            <br><br><br><br><br>
-        </div>
-    </div>
-</div>
-
+  <div class="container-fluid page-header py-6 my-6 mt-0 wow fadeIn" data-wow-delay="0.1s">
+      <div class="container text-center">
+      </div>
+  </div>
+  <div class="container">
+      <div class="row">
+          <div class="col-12 m-5">
+              <form action="" method="POST" enctype="multipart/form-data">
+                  {% csrf_token %}
+                  <table>
+                      {{ form | crispy }}
+                  </table>
+                  <button type="submit" class="ov-btn-grow-ellipse" style="margin: 30px ;">Añadir</button>
+              </form>
+              <br><br><br><br><br>
+          </div>
+      </div>
+  </div>
 {% endblock %}
-
 {% block js %}
-{% if messages %}
-{% for aux in messages %}
-<script>
-    Swal.fire({
-        title: 'Confirmación',
-        text: '{{ aux }}',
-        icon: 'success',
-        showCancelButton: false,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Aceptar'
-    })
-</script>
-{% endfor %}
-{% endif %}
+  <script src="https://code.jquery.com/jquery-3.6.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+    $(function() {
+      $(".datepicker").datepicker();
+    });
+  </script>
 {% endblock %}

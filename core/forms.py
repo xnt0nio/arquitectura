@@ -79,6 +79,15 @@ class PostulacionTallerForm(forms.ModelForm):
         model = postulacion_taller
         fields = '__all__'
 
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        # Añade el atributo 'type' y la clase 'datepicker' para especificar que son campos de fecha
+        self.fields['fecha_inicio'].widget.attrs['type'] = 'text'
+        self.fields['fecha_inicio'].widget.attrs['class'] = 'datepicker'
+        self.fields['fecha_termino'].widget.attrs['type'] = 'text'
+        self.fields['fecha_termino'].widget.attrs['class'] = 'datepicker'
+
+
 class UsuarioForm(forms.ModelForm):
     class Meta:
         model = Usuario

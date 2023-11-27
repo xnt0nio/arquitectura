@@ -29,6 +29,7 @@ urlpatterns = [
     
     
     path('listar', listar, name='listar'),
+    path('listartalleres', listartalleres, name='listartalleres'),
     #los 12 listar aqui
     
     

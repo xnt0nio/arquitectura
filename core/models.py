@@ -127,11 +127,11 @@ class Bono(models.Model):
 
 
 class postulacion_taller(models.Model):
-    Idpostulacion = models.IntegerField(blank=True, null=True)
-    fecha_inicio = models.DateTimeField(blank = True, null=True)
-    fecha_termino = models.DateTimeField(blank = True, null=True)
+    Idpostulacion = models.AutoField(primary_key=True)
+    fecha_inicio = models.DateTimeField(blank=True, null=True)
+    fecha_termino = models.DateTimeField(blank=True, null=True)
     cupos = models.IntegerField(blank=True, null=True)  
-    promedio = models.IntegerField(blank=True, null=True)      
+    promedio = models.IntegerField(blank=True, null=True)  
 
 
 
