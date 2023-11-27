@@ -45,7 +45,6 @@ urlpatterns = [
     path('updatecredencial/<id>/', updatecredencial, name="updatecredencial"),
     path('updatepostulacioninstructor/<id>/', updatepostulacioninstructor, name="updatepostulacioninstructor"),
     
-    
 
    #los eliminar aqui
     path('eliminar_instructor/<int:id>/', eliminar_instructor, name='eliminar_instructor'),
@@ -82,4 +81,7 @@ urlpatterns += [
 ]
 
 
+
+
+    
 

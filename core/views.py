@@ -610,20 +610,20 @@ def updateinstructor(request, id):
 
 
 #2
-def updateinstructor(request, id):
-    instructor = instructor.objects.get(id=id)
+def updateadultomayor(request, id):
+    AdultoMayor = get_object_or_404(adulto_mayor, id=id)
     data = {
-        'form' : InstructorForm(instance=instructor) 
+        'form': AdultoMayorForm(instance=AdultoMayor)
     }
 
     if request.method == 'POST':
-        formulario = ProductoForm(data=request.POST, instance=producto, files=request.FILES)
+        formulario = AdultoMayorForm(request.POST, instance=AdultoMayor, files=request.FILES)
         if formulario.is_valid():
-            formulario.save()           
-            messages.success(request, "Producto modificado correctamente")
-            data['form'] = formulario 
-         
-    return render(request, 'core/update-product.html', data)
+            formulario.save()
+            messages.success(request, "Registro de adulto mayor modificado correctamente")
+            data['form'] = formulario
+
+    return render(request, 'core/updateadultomayor.html', data)
 
 
 
@@ -860,11 +860,15 @@ def eliminar_instructor(request, id):
     return render(request, 'core/listar.html', {'elemento': inst_instructor})
 
 
+
 def eliminar_adultomayor(request, id):
     inst_adulto = get_object_or_404(adulto_mayor, id=id)
+    
     if request.method == 'POST':
         inst_adulto.delete()
-        return HttpResponseRedirect(reverse('listar'))
+        messages.success(request, "Adulto Mayor eliminado correctamente")
+        return redirect('listar')  # Cambia 'listar' por el nombre correcto de tu vista de listado
+
     return render(request, 'core/listar.html', {'elemento': inst_adulto})
 
 def eliminar_materiales(request, id):
