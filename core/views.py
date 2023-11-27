@@ -587,13 +587,13 @@ def deleteComent(request, id):
 
 #1
 def updateinstructor(request, id):
-    instructor = instructor.objects.get(id=id)
+    instructor = Instructor.objects.get(id=id)
     data = {
         'form' : InstructorForm(instance=instructor) 
     }
 
     if request.method == 'POST':
-        formulario = ProductoForm(data=request.POST, instance=producto, files=request.FILES)
+        formulario = ProductoForm(data=request.POST, instance=instructor, files=request.FILES)
         if formulario.is_valid():
             formulario.save()           
             messages.success(request, "Producto modificado correctamente")
@@ -633,14 +633,14 @@ def updateadultomayor(request, id):
 
 
 #3
-def updateinstructor(request, id):
-    instructor = instructor.objects.get(id=id)
+def updatemateriales(request, id):
+    material = Materiales.objects.get(id=id)
     data = {
-        'form' : InstructorForm(instance=instructor) 
+        'form' : MaterialesForm(instance=material) 
     }
 
     if request.method == 'POST':
-        formulario = ProductoForm(data=request.POST, instance=producto, files=request.FILES)
+        formulario = MaterialesForm(data=request.POST, instance=material, files=request.FILES)
         if formulario.is_valid():
             formulario.save()           
             messages.success(request, "Producto modificado correctamente")
@@ -653,14 +653,14 @@ def updateinstructor(request, id):
 
 
 #4
-def updateinstructor(request, id):
-    instructor = instructor.objects.get(id=id)
+def updatesala(request, id):
+    sala = Sala.objects.get(id=id)
     data = {
-        'form' : InstructorForm(instance=instructor) 
+        'form' : SalaForm(instance=sala) 
     }
 
     if request.method == 'POST':
-        formulario = ProductoForm(data=request.POST, instance=producto, files=request.FILES)
+        formulario = SalaForm(data=request.POST, instance=sala, files=request.FILES)
         if formulario.is_valid():
             formulario.save()           
             messages.success(request, "Producto modificado correctamente")
@@ -673,14 +673,14 @@ def updateinstructor(request, id):
 
 
 #5
-def updateinstructor(request, id):
-    instructor = instructor.objects.get(id=id)
+def updatetalleres(request, id):
+    taller = Talleres.objects.get(id=id)
     data = {
-        'form' : InstructorForm(instance=instructor) 
+        'form' : TalleresForm(instance=taller) 
     }
 
     if request.method == 'POST':
-        formulario = ProductoForm(data=request.POST, instance=producto, files=request.FILES)
+        formulario = TalleresForm(data=request.POST, instance=taller, files=request.FILES)
         if formulario.is_valid():
             formulario.save()           
             messages.success(request, "Producto modificado correctamente")
@@ -698,14 +698,14 @@ def updateinstructor(request, id):
 
 
 #6
-def updateinstructor(request, id):
-    instructor = instructor.objects.get(id=id)
+def updatepostulaciontaller(request, id):
+    postulacioninstructor = postulacion_instructor.objects.get(id=id)
     data = {
-        'form' : InstructorForm(instance=instructor) 
+        'form' : PostulacionInstructorForm(instance=postulacioninstructor) 
     }
 
     if request.method == 'POST':
-        formulario = ProductoForm(data=request.POST, instance=producto, files=request.FILES)
+        formulario = PostulacionInstructorForm(data=request.POST, instance=postulacioninstructor, files=request.FILES)
         if formulario.is_valid():
             formulario.save()           
             messages.success(request, "Producto modificado correctamente")
@@ -720,14 +720,14 @@ def updateinstructor(request, id):
 
 
 #7
-def updateinstructor(request, id):
-    instructor = instructor.objects.get(id=id)
+def updatepostulaciontaller(request, id):
+    postulacionTaller = postulacion_taller.objects.get(id=id)
     data = {
-        'form' : InstructorForm(instance=instructor) 
+        'form' : PostulacionTallerForm(instance=postulacionTaller) 
     }
 
     if request.method == 'POST':
-        formulario = ProductoForm(data=request.POST, instance=producto, files=request.FILES)
+        formulario = PostulacionTallerForm(data=request.POST, instance=postulacionTaller, files=request.FILES)
         if formulario.is_valid():
             formulario.save()           
             messages.success(request, "Producto modificado correctamente")
@@ -741,15 +741,15 @@ def updateinstructor(request, id):
 
 
 
-#7
-def updateinstructor(request, id):
-    instructor = instructor.objects.get(id=id)
+#8
+def updatemuni(request, id):
+    municipalidad = Municipalidad.objects.get(id=id)
     data = {
-        'form' : InstructorForm(instance=instructor) 
+        'form' : MunicipalidadForm(instance=municipalidad) 
     }
 
     if request.method == 'POST':
-        formulario = ProductoForm(data=request.POST, instance=producto, files=request.FILES)
+        formulario = MunicipalidadForm(data=request.POST, instance=municipalidad, files=request.FILES)
         if formulario.is_valid():
             formulario.save()           
             messages.success(request, "Producto modificado correctamente")
@@ -760,15 +760,15 @@ def updateinstructor(request, id):
 
 
 
- #7
-def updateinstructor(request, id):
-    instructor = instructor.objects.get(id=id)
+ #9
+def updatepago(request, id):
+    pago = Pago.objects.get(id=id)
     data = {
-        'form' : InstructorForm(instance=instructor) 
+        'form' : PagoForm(instance=pago) 
     }
 
     if request.method == 'POST':
-        formulario = ProductoForm(data=request.POST, instance=producto, files=request.FILES)
+        formulario = PagoForm(data=request.POST, instance=pago, files=request.FILES)
         if formulario.is_valid():
             formulario.save()           
             messages.success(request, "Producto modificado correctamente")
@@ -778,15 +778,15 @@ def updateinstructor(request, id):
 
 
 
-#7
-def updateinstructor(request, id):
-    instructor = instructor.objects.get(id=id)
+#10
+def updatebono(request, id):
+    bono = Bono.objects.get(id=id)
     data = {
-        'form' : InstructorForm(instance=instructor) 
+        'form' : BonoForm(instance=bono) 
     }
 
     if request.method == 'POST':
-        formulario = ProductoForm(data=request.POST, instance=producto, files=request.FILES)
+        formulario = BonoForm(data=request.POST, instance=bono, files=request.FILES)
         if formulario.is_valid():
             formulario.save()           
             messages.success(request, "Producto modificado correctamente")
@@ -796,15 +796,15 @@ def updateinstructor(request, id):
 
 
 
-#7
-def updateinstructor(request, id):
-    instructor = instructor.objects.get(id=id)
+#11
+def updateusuario(request, id):
+    usuario = Usuario.objects.get(id=id)
     data = {
-        'form' : InstructorForm(instance=instructor) 
+        'form' : UsuarioForm(instance=usuario) 
     }
 
     if request.method == 'POST':
-        formulario = ProductoForm(data=request.POST, instance=producto, files=request.FILES)
+        formulario = UsuarioForm(data=request.POST, instance=usuario, files=request.FILES)
         if formulario.is_valid():
             formulario.save()           
             messages.success(request, "Producto modificado correctamente")
@@ -813,6 +813,38 @@ def updateinstructor(request, id):
     return render(request, 'core/update-product.html', data)              
 
 
+#12
+def updatecredencial(request, id):
+    credencial = Credencial.objects.get(id=id)
+    data = {
+        'form' : CredencialesForm(instance=credencial) 
+    }
+
+    if request.method == 'POST':
+        formulario = CredencialesForm(data=request.POST, instance=credencial, files=request.FILES)
+        if formulario.is_valid():
+            formulario.save()           
+            messages.success(request, "Producto modificado correctamente")
+            data['form'] = formulario 
+         
+    return render(request, 'core/update-product.html', data)              
+
+
+#13
+def updatepostulacioninstructor(request, id):
+    postulacioninstructor = postulacion_instructor.objects.get(id=id)
+    data = {
+        'form' : PostulacionInstructorForm(instance=postulacioninstructor) 
+    }
+
+    if request.method == 'POST':
+        formulario = PostulacionInstructorForm(data=request.POST, instance=postulacioninstructor, files=request.FILES)
+        if formulario.is_valid():
+            formulario.save()           
+            messages.success(request, "Producto modificado correctamente")
+            data['form'] = formulario 
+         
+    return render(request, 'core/update-product.html', data)              
 
 
 

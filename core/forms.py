@@ -41,7 +41,7 @@ class MunicipalidadForm(forms.ModelForm):
 
 class PagoForm(forms.ModelForm):
     class Meta:
-        model = pago
+        model = Pago
         fields = '__all__'
 
 class AdultoMayorForm(forms.ModelForm):
@@ -51,7 +51,7 @@ class AdultoMayorForm(forms.ModelForm):
 
 class InstructorForm(forms.ModelForm):
     class Meta:
-        model = instructor
+        model = Instructor
         fields = '__all__'
 
 class MaterialesForm(forms.ModelForm):
@@ -71,7 +71,7 @@ class SalaForm(forms.ModelForm):
 
 class BonoForm(forms.ModelForm):
     class Meta:
-        model = bono
+        model = Bono
         fields = '__all__'
 
 class PostulacionTallerForm(forms.ModelForm):
@@ -81,7 +81,7 @@ class PostulacionTallerForm(forms.ModelForm):
 
 class UsuarioForm(forms.ModelForm):
     class Meta:
-        model = usuario
+        model = Usuario
         fields = '__all__'
 
 class PostulacionInstructorForm(forms.ModelForm):
@@ -91,5 +91,5 @@ class PostulacionInstructorForm(forms.ModelForm):
 
 class CredencialesForm(forms.ModelForm):
     class Meta:
-        model = credencial
+        model = Credencial
         fields = '__all__'        
