@@ -61,10 +61,8 @@ class Municipalidad(models.Model):
 
 
 
-class pago(models.Model):
-    """
-    
-    """
+class Pago(models.Model):
+    Id_pago = models.IntegerField(blank=True, null=True)  
     fecha_pago = models.DateTimeField(blank = True, null=True)
 
 
@@ -84,7 +82,7 @@ class adulto_mayor(models.Model):
 
 
 
-class instructor(models.Model):
+class Instructor(models.Model):
     Rut = models.IntegerField(blank=True, null=True)
     primer_nombre = models.CharField(max_length=30)
     segundo_nombre = models.CharField(max_length=30)
@@ -120,7 +118,7 @@ class Sala(models.Model):
 
 
 
-class bono(models.Model):
+class Bono(models.Model):
     Idbono = models.IntegerField(blank=True, null=True)
     nombre = models.CharField(max_length=70)
     monto = models.IntegerField(blank=True, null=True)
@@ -138,7 +136,7 @@ class postulacion_taller(models.Model):
 
 
 ###esta nose como se hace asi que hay que revisarla
-class usuario(models.Model):
+class Usuario(models.Model):
     Rut = models.IntegerField(blank=True, null=True)
     primer_nombre = models.CharField(max_length=30)
     segundo_nombre = models.CharField(max_length=30)
@@ -163,7 +161,7 @@ class postulacion_instructor(models.Model):
 
 
 
-class credencial(models.Model):
+class Credencial(models.Model):
     id_credencial = models.IntegerField(blank=True, null=True)
     nombre_usuario = models.CharField(max_length=50)
     contraseña = models.CharField(max_length=50)
