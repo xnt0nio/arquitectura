@@ -130,9 +130,8 @@ class postulacion_taller(models.Model):
     Idpostulacion = models.AutoField(primary_key=True)
     fecha_inicio = models.DateTimeField(blank=True, null=True)
     fecha_termino = models.DateTimeField(blank=True, null=True)
-    cupos = models.IntegerField(blank=True, null=True)
+    cupos = models.IntegerField(blank=True, null=True)  
     promedio = models.IntegerField(blank=True, null=True)  
-
 
 
 ###esta nose como se hace asi que hay que revisarla

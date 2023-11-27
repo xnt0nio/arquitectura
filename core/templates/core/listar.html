@@ -4,23 +4,36 @@
 
 {% block css %}
   <!-- Agrega aquí tus enlaces CSS específicos si es necesario -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10">
 {% endblock %}
 
 {% block contenido %}
-  <h1>Listado de Instructores</h1>
-  <ul>
-    {% for instructor in instructores %}
-      <li>
-        <p>Nombre del Instructor:</p>
-        {{ instructor.primer_nombre }} {{ instructor.primer_apellido }}
-        
-        <p>Correo:</p>
-        {{ instructor.correo }}
-      </li>
-    {% endfor %}
-  </ul>
+  <h1>Listado de Adultos Mayores</h1>
+  {% for adulto_mayor in adultos_mayores %}
+    <div class="card" style="width: 18rem; margin-bottom: 20px;">
+      <div class="card-body">
+        <h5 class="card-title">{{ adulto_mayor.primer_nombre }} {{ adulto_mayor.primer_apellido }}</h5>
+        <p class="card-text">
+          Fecha de Nacimiento: {{ adulto_mayor.fecha_nacimiento|date:"Y-m-d" }}<br>
+          Teléfono: {{ adulto_mayor.telefono }}<br>
+          Dirección: {{ adulto_mayor.direccion }}
+        </p>
+        <a href="{% url 'updateadultomayor' adulto_mayor.id %}" class="btn btn-primary">Actualizar</a>
+
+        <!-- Formulario para eliminar -->
+        <form method="post" action="{% url 'eliminar_adultomayor' adulto_mayor.id %}" style="display: inline;">
+          {% csrf_token %}
+          <button type="submit" class="btn btn-danger">Eliminar</button>
+        </form>
+      </div>
+    </div>
+  {% endfor %}
 {% endblock %}
 
 {% block js %}
   <!-- Agrega aquí tus scripts JavaScript específicos si es necesario -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+  <script>
+    
+  </script>
 {% endblock %}

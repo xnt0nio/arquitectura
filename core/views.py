@@ -133,17 +133,22 @@ def addtalleres(request):
 
 #6
 def postulaciontaller(request):
-    data = {
-        'form' : PostulacionTallerForm()
-    }
-
     if request.method == 'POST':
+        print(request.POST)  # Imprime los datos del formulario en la consola
         formulario = PostulacionTallerForm(request.POST, files=request.FILES) 
         if formulario.is_valid():
-            formulario.save() 
-            
-            messages.success(request, "Producto almacenado correctamente")      
-    return render(request, 'core/postulaciontaller.html', data)   
+            formulario.save()
+            messages.success(request, "Postulación almacenada correctamente")
+            return redirect('index')  # Reemplaza 'nombre_de_la_vista' con el nombre correcto de tu vista de listado o detalle
+        else:
+            messages.error(request, "Error en el formulario. Verifica los datos ingresados.")
+            print(formulario.errors)  # Imprime los errores en la consola para diagnóstico
+
+    data = {
+        'form': PostulacionTallerForm()
+    }
+
+    return render(request, 'core/postulaciontaller.html', data)
 
 
 
@@ -251,7 +256,10 @@ def listar(request):
     })
 
 
-
+def listartalleres(request):
+    talleres = Talleres.objects.all()
+    
+    return render(request, 'core/listartalleres.html', {'talleres': talleres})
 
 
 
@@ -590,19 +598,19 @@ def updateinstructor(request, id):
 
 #2
 def updateadultomayor(request, id):
-    adulto = adulto_mayor.objects.get(id=id)
+    AdultoMayor = get_object_or_404(adulto_mayor, id=id)
     data = {
-        'form' : AdultoMayorForm(instance=adulto) 
+        'form': AdultoMayorForm(instance=AdultoMayor)
     }
 
     if request.method == 'POST':
-        formulario = AdultoMayorForm(data=request.POST, instance=adulto, files=request.FILES)
+        formulario = AdultoMayorForm(request.POST, instance=AdultoMayor, files=request.FILES)
         if formulario.is_valid():
-            formulario.save()           
-            messages.success(request, "Producto modificado correctamente")
-            data['form'] = formulario 
-         
-    return render(request, 'core/update-product.html', data)
+            formulario.save()
+            messages.success(request, "Registro de adulto mayor modificado correctamente")
+            data['form'] = formulario
+
+    return render(request, 'core/updateadultomayor.html', data)
 
 
 
@@ -864,18 +872,22 @@ def updatepostulacioninstructor(request, id):
 
 #los delete aqui abajo son 12
 def eliminar_instructor(request, id):
-    inst_instructor = get_object_or_404(instructor, id=id)
+    inst_instructor = get_object_or_404(Instructor, id=id)
     if request.method == 'POST':
         inst_instructor.delete()
         return HttpResponseRedirect(reverse('listar'))
     return render(request, 'core/listar.html', {'elemento': inst_instructor})
 
 
+
 def eliminar_adultomayor(request, id):
     inst_adulto = get_object_or_404(adulto_mayor, id=id)
+    
     if request.method == 'POST':
         inst_adulto.delete()
-        return HttpResponseRedirect(reverse('listar'))
+        messages.success(request, "Adulto Mayor eliminado correctamente")
+        return redirect('listar')  # Cambia 'listar' por el nombre correcto de tu vista de listado
+
     return render(request, 'core/listar.html', {'elemento': inst_adulto})
 
 def eliminar_materiales(request, id):
@@ -893,12 +905,15 @@ def eliminar_sala(request, id):
     return render(request, 'core/listar.html', {'elemento': inst_sala})
 
 
+
 def eliminar_talleres(request, id):
     inst_talleres = get_object_or_404(Talleres, id=id)
+
     if request.method == 'POST':
         inst_talleres.delete()
-        return HttpResponseRedirect(reverse('listar'))
-    return render(request, 'core/listar.html', {'elemento': inst_talleres})
+        return redirect('listartalleres')  # Nombre correcto de tu vista de listado de talleres
+
+    return render(request, 'core/listartalleres.html', {'elemento': inst_talleres})
 
 def eliminar_postulaciontaller(request, id):
     inst_posttaller = get_object_or_404(postulacion_taller, id=id)
@@ -915,14 +930,14 @@ def eliminar_Muni(request, id):
     return render(request, 'core/listar.html', {'elemento': inst_muni})
 
 def eliminar_pago(request, id):
-    inst_pago = get_object_or_404(pago, id=id)
+    inst_pago = get_object_or_404(Pago, id=id)
     if request.method == 'POST':
         inst_pago.delete()
         return HttpResponseRedirect(reverse('listar'))
     return render(request, 'core/listar.html', {'elemento': inst_pago})
 
 def eliminar_bono(request, id):
-    inst_bono = get_object_or_404(bono, id=id)
+    inst_bono = get_object_or_404(Bono, id=id)
     if request.method == 'POST':
         inst_bono.delete()
         return HttpResponseRedirect(reverse('listar'))
@@ -936,14 +951,14 @@ def eliminar_postulacioninstructor(request, id):
     return render(request, 'core/listar.html', {'elemento': inst_postinst})
 
 def eliminar_usuario(request, id):
-    inst_usuario = get_object_or_404(usuario, id=id)
+    inst_usuario = get_object_or_404(Usuario, id=id)
     if request.method == 'POST':
         inst_usuario.delete()
         return HttpResponseRedirect(reverse('listar'))
     return render(request, 'core/listar.html', {'elemento': inst_usuario})
 
 def eliminar_credencial(request, id):
-    inst_credencial = get_object_or_404(credencial, id=id)
+    inst_credencial = get_object_or_404(Credencial, id=id)
     if request.method == 'POST':
         inst_credencial.delete()
         return HttpResponseRedirect(reverse('listar'))
