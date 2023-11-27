@@ -1,0 +1,35 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block css %}
+  <!-- Agrega aquí tus enlaces CSS específicos si es necesario -->
+{% endblock %}
+
+{% block contenido %}
+  <h1>Listado de Talleres</h1>
+
+  {% for taller in talleres %}
+    <div class="card" style="width: 18rem; margin-bottom: 20px;">
+      <div class="card-body">
+        <h5 class="card-title">{{ taller.nombre }}</h5>
+        <p class="card-text">
+          Descripción: {{ taller.descripcion }}<br>
+          <!-- Agrega más detalles según sea necesario -->
+        </p>
+        <a href="{% url 'updatetalleres' taller.id %}" class="btn btn-primary">Actualizar</a>
+
+        <!-- Formulario para eliminar -->
+        <form method="post" action="{% url 'eliminar_talleres' taller.id %}" style="display: inline;">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger">Eliminar</button>
+          </form>
+      </div>
+    </div>
+  {% endfor %}
+
+{% endblock %}
+
+{% block js %}
+  <!-- Agrega aquí tus scripts JavaScript específicos si es necesario -->
+{% endblock %}
