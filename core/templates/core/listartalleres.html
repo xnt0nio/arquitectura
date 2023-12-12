@@ -13,6 +13,9 @@
     margin-top: 50px;
     /* Agrega un margen superior para separar el título del borde superior */
   }
+
+
+  
 </style>
 {% endblock %}
 
@@ -27,58 +30,52 @@
 
 <div class="container">
   <div class="row g-3 team-items">
-
     {% if taller %}
-    <div class="col-lg-3 col-md-3 col-sm-3 wow fadeInUp" data-wow-delay="0.7s">
-      <div class="team-item">
-        <div class="team-social text-center">
-          <td>
-            <a href="{% url 'inscripciontaller' %}">
-              <button type="button" class="btn btn-primary">Inscríbete</button>
-            </a>
-
-
-          </td>
-        </div>
-        <div class="bg-light text-center p-4" style="height: 220px;">
-          <div class="container mt-1">
-            <div class="media">
-              <div class="media-body my-auto text-left">
-                <div class="row my-auto flex-column flex-md-row">
-                  <div class="col my-auto">
-                    <h6 class="mb-2">Nombre: {{ taller.nombre }}</h6>
-
+      
+    <div class="col-lg-3 col-md-3 col-sm-6 col-12 important-col">
+          <div class="team-item">
+            <div class="team-social text-center">
+              <td>
+                <a href="{% url 'inscripciontaller' %}">
+                  <button type="button" class="btn btn-primary">Inscríbete</button>
+                </a>
+              </td>
+            </div>
+            <div class="bg-light text-center p-4" style="height: 220px;">
+              <div class="container mt-1">
+                <div class="media">
+                  <div class="media-body my-auto text-left">
+                    <div class="row my-auto flex-column flex-md-row">
+                      <div class="col my-auto">
+                        <h6 class="mb-2">Nombre: {{ t.nombre }}</h6>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <hr class="my-3">
+                <div class="media">
+                  <div class="media-body my-auto text-left">
+                    <div class="row my-auto flex-column flex-md-row">
+                      <div class="col my-auto">
+                        <h6 class="mb-2">Duración:</h6>
+                        <small class="mb-2"> {{ t.horas }} horas</small>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-            <hr class="my-3">
-            <div class="media">
-              <div class="media-body my-auto text-left">
-                <div class="row my-auto flex-column flex-md-row">
-                  <div class="col my-auto">
-                    <h6 class="mb-2">Descripción:</h6>
-                    <small class="mb-2"> {{ taller.descripcion }}</small>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-
-
-
           </div>
         </div>
-      </div>
-    </div>
+   
     {% else %}
-    <div class="alert alert-danger text-center">
-      No hay comentarios
-    </div>
-    {% endif%}
-
+      <div class="alert alert-danger text-center">
+        No hay talleres disponibles.
+      </div>
+    {% endif %}
   </div>
 </div>
+
 
 
 
