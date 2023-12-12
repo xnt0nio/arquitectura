@@ -143,7 +143,7 @@ def inscripciontaller(request):
         if formulario.is_valid():
             formulario.save()
      
-            messages.success(request, "Postulación almacenada correctamente")  
+            messages.success(request, "Postulación realizada correctamente")  
                 
     return render(request, 'core/inscripciontaller.html', data)    
 
