@@ -108,12 +108,14 @@ class Talleres(models.Model):
     idtalleres = models.AutoField(primary_key=True)
     nombre = models.CharField(max_length=70)
     horas = models.IntegerField(blank=True, null=True)
+    def __str__(self):
+        return self.nombre
 
 
-class inscripcion(models.Model):
+class Inscripcion(models.Model):
     nombre = models.CharField(max_length=70)
     edad = models.IntegerField(blank=True, null=True)
-
+    taller = models.ForeignKey(Talleres, on_delete=models.CASCADE)
 
 class Sala(models.Model):
     Idsala = models.IntegerField(blank=True, null=True)

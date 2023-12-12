@@ -12,4 +12,4 @@ from .models import *
 
 admin.site.register(Talleres)
 
-admin.site.register(inscripcion)
+admin.site.register(Inscripcion)

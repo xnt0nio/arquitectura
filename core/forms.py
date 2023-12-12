@@ -70,10 +70,19 @@ class SalaForm(forms.ModelForm):
         fields = '__all__'
 
 
-class inscripcionForm(forms.ModelForm):
+class InscripcionForm(forms.ModelForm):
+    def __init__(self, *args, **kwargs):
+        taller = kwargs.pop('taller', None)
+        super(InscripcionForm, self).__init__(*args, **kwargs)
+        
+        # Establecer el atributo 'readonly' solo para el campo 'nombre'
+        self.fields['nombre'].widget.attrs['readonly'] = True
+
+    taller = forms.ModelChoiceField(queryset=Talleres.objects.all(), empty_label=None)
+
     class Meta:
-        model = inscripcion
-        fields = '__all__'  
+        model = Inscripcion
+        fields = ['nombre', 'edad', 'taller']
 
 class BonoForm(forms.ModelForm):
     class Meta:
