@@ -131,6 +131,8 @@ def addtalleres(request):
 
 
 
+
+@grupo_requerido('usuario')
 def inscripciontaller(request):
     data = {
         'form' : inscripcionForm()
