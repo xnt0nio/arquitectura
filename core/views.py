@@ -148,6 +148,7 @@ def inscripciontaller(request):
     }
     return render(request, 'core/inscripciontaller.html', data)
 
+@grupo_requerido('usuario')
 def mis_inscripciones(request):
     inscripciones = Inscripcion.objects.filter(nombre=request.user.username)
     return render(request, 'core/mis_inscripciones.html', {'inscripciones': inscripciones})
