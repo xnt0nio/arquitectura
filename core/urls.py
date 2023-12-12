@@ -25,8 +25,9 @@ urlpatterns = [
     path('addusuario', addusuario, name="addusuario"),
     path('addcredencial', addcredencial, name="addcredencial"),
     path('addPostulacionInstructor', addPostulacionInstructor, name="addPostulacionInstructor"),
-    path('inscripciontaller ', inscripciontaller, name="inscripciontaller"),
-    
+    path('inscripciontaller', inscripciontaller, name="inscripciontaller"),
+    path('mis_inscripciones/', mis_inscripciones, name='mis_inscripciones'),
+
     
     
     path('listar', listar, name='listar'),

@@ -133,21 +133,29 @@ def addtalleres(request):
 
 
 @grupo_requerido('usuario')
-def inscripciontaller(request):
-    data = {
-        'form' : inscripcionForm()
-    }
+def inscripciontaller(request, taller_id=None):
+    taller = None
+    if taller_id:
+        taller = Talleres.objects.get(id=taller_id)
 
     if request.method == 'POST':
-        formulario = inscripcionForm(request.POST, files=request.FILES) 
+        formulario = InscripcionForm(request.POST, files=request.FILES, taller=taller)
         if formulario.is_valid():
-            formulario.save()
-     
-            messages.success(request, "Postulación almacenada correctamente")  
-                
-    return render(request, 'core/inscripciontaller.html', data)    
+            inscripcion = formulario.save(commit=False)
+            inscripcion.nombre = request.user.username  # Asigna el nombre de usuario al campo 'nombre'
+            inscripcion.save()
+            messages.success(request, "Postulación almacenada correctamente")
 
+    data = {
+        'form': InscripcionForm(taller=taller, initial={'nombre': request.user.username}),
+        'taller': taller,
+    }
+    
+    return render(request, 'core/inscripciontaller.html', data) 
 
+def mis_inscripciones(request):
+    inscripciones = Inscripcion.objects.filter(nombre=request.user.username)
+    return render(request, 'core/mis_inscripciones.html', {'inscripciones': inscripciones})
 
 #6
 
