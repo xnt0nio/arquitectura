@@ -141,18 +141,10 @@ def inscripciontaller(request, taller_id=None):
     if request.method == 'POST':
         formulario = InscripcionForm(request.POST, files=request.FILES, taller=taller)
         if formulario.is_valid():
-<<<<<<< HEAD
-            formulario.save()
-     
-            messages.success(request, "Postulación realizada correctamente")  
-                
-    return render(request, 'core/inscripciontaller.html', data)    
-=======
             inscripcion = formulario.save(commit=False)
             inscripcion.nombre = request.user.username  # Asigna el nombre de usuario al campo 'nombre'
             inscripcion.save()
             messages.success(request, "Postulación almacenada correctamente")
->>>>>>> 0267b8451d0c151e1bcd01f90cc60c015ceb3e97
 
     data = {
         'form': InscripcionForm(taller=taller, initial={'nombre': request.user.username}),
