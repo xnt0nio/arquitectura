@@ -89,8 +89,8 @@
                     {% if user.is_authenticated and user.username == 'admin' %}
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">administración</a>
                     <div class="dropdown-menu bg-light m-0">
-                        <a href="{% url 'addadultomayor' %}" class="dropdown-item">Registrar Adulto Mayor</a>
-                        <a href="{% url 'listar' %}" class="dropdown-item">Lista Adulto Mayor</a>
+               
+                
                         <a href="{% url 'addtalleres' %}" class="dropdown-item">Añadir Taller</a>
                         <a href="{% url 'listartalleres' %}" class="dropdown-item">Lista Talleres</a>
                         <a href="{% url 'postulaciontaller' %}" class="dropdown-item">Postulacion Taller</a>
