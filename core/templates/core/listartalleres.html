@@ -3,33 +3,107 @@
 {% load crispy_forms_tags %}
 
 {% block css %}
-  <!-- Agrega aquí tus enlaces CSS específicos si es necesario -->
+<style>
+  body {
+    text-align: center;
+    /* Alinea el texto al centro */
+  }
+
+  h1 {
+    margin-top: 50px;
+    /* Agrega un margen superior para separar el título del borde superior */
+  }
+</style>
 {% endblock %}
 
 {% block contenido %}
-  <h1>Listado de Talleres</h1>
+<div class="container-fluid page-header py-6 my-6 mt-0 wow fadeIn" data-wow-delay="0.1s">
+  <div class="container text-center">
+  </div>
+</div>
+<h1>Talleres</h1>
 
-  {% for taller in talleres %}
-    <div class="card" style="width: 18rem; margin-bottom: 20px;">
-      <div class="card-body">
-        <h5 class="card-title">{{ taller.nombre }}</h5>
-        <p class="card-text">
-          Descripción: {{ taller.descripcion }}<br>
-          <!-- Agrega más detalles según sea necesario -->
-        </p>
-        <a href="{% url 'updatetalleres' taller.id %}" class="btn btn-primary">Actualizar</a>
+{% for taller in talleres %}
 
-        <!-- Formulario para eliminar -->
-        <form method="post" action="{% url 'eliminar_talleres' taller.id %}" style="display: inline;">
-            {% csrf_token %}
-            <button type="submit" class="btn btn-danger">Eliminar</button>
-          </form>
+<div class="container">
+  <div class="row g-3 team-items">
+
+    {% if taller %}
+    <div class="col-lg-3 col-md-3 col-sm-3 wow fadeInUp" data-wow-delay="0.7s">
+      <div class="team-item">
+        <div class="team-social text-center">
+          <td>
+            <a href="{% url 'inscripciontaller' %}">
+              <button type="button" class="btn btn-primary">Inscríbete</button>
+            </a>
+
+
+          </td>
+        </div>
+        <div class="bg-light text-center p-4" style="height: 220px;">
+          <div class="container mt-1">
+            <div class="media">
+              <div class="media-body my-auto text-left">
+                <div class="row my-auto flex-column flex-md-row">
+                  <div class="col my-auto">
+                    <h6 class="mb-2">Nombre: {{ taller.nombre }}</h6>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+            <hr class="my-3">
+            <div class="media">
+              <div class="media-body my-auto text-left">
+                <div class="row my-auto flex-column flex-md-row">
+                  <div class="col my-auto">
+                    <h6 class="mb-2">Descripción:</h6>
+                    <small class="mb-2"> {{ taller.descripcion }}</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
+
+          </div>
+        </div>
       </div>
     </div>
-  {% endfor %}
+    {% else %}
+    <div class="alert alert-danger text-center">
+      No hay comentarios
+    </div>
+    {% endif%}
+
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endfor %}
 
 {% endblock %}
 
 {% block js %}
-  <!-- Agrega aquí tus scripts JavaScript específicos si es necesario -->
+<!-- Agrega aquí tus scripts JavaScript específicos si es necesario -->
 {% endblock %}

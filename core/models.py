@@ -105,9 +105,14 @@ class Materiales(models.Model):
 
 
 class Talleres(models.Model):
-    idtalleres = models.IntegerField(blank=True, null=True)
+    idtalleres = models.AutoField(primary_key=True)
     nombre = models.CharField(max_length=70)
     horas = models.IntegerField(blank=True, null=True)
+
+
+class inscripcion(models.Model):
+    nombre = models.CharField(max_length=70)
+    edad = models.IntegerField(blank=True, null=True)
 
 
 class Sala(models.Model):
@@ -131,7 +136,7 @@ class postulacion_taller(models.Model):
     fecha_inicio = models.DateTimeField(blank=True, null=True)
     fecha_termino = models.DateTimeField(blank=True, null=True)
     cupos = models.IntegerField(blank=True, null=True)  
-    promedio = models.IntegerField(blank=True, null=True)  
+  
 
 
 ###esta nose como se hace asi que hay que revisarla

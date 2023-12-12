@@ -98,12 +98,7 @@
                     {% endif %}
                 </div>
                 {% if user.is_authenticated %}
-                <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">administración</a>
-                    <div class="dropdown-menu bg-light m-0">
-                        <a href="{% url 'postulaciontaller' %}" class="dropdown-item">Postulacion Taller</a>
-                    </div>
-                </div>
+                <a href="{% url 'listartalleres' %}" class="nav-item nav-link">Postular</a>
 
                 {% endif %}
 

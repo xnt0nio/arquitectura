@@ -69,6 +69,12 @@ class SalaForm(forms.ModelForm):
         model = Sala
         fields = '__all__'
 
+
+class inscripcionForm(forms.ModelForm):
+    class Meta:
+        model = inscripcion
+        fields = '__all__'  
+
 class BonoForm(forms.ModelForm):
     class Meta:
         model = Bono

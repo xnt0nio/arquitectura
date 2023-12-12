@@ -131,8 +131,24 @@ def addtalleres(request):
 
 
 
+def inscripciontaller(request):
+    data = {
+        'form' : inscripcionForm()
+    }
+
+    if request.method == 'POST':
+        formulario = inscripcionForm(request.POST, files=request.FILES) 
+        if formulario.is_valid():
+            formulario.save()
+     
+            messages.success(request, "Postulación almacenada correctamente")  
+                
+    return render(request, 'core/inscripciontaller.html', data)    
+
+
+
 #6
-@grupo_requerido('adultomayor')
+
 def postulaciontaller(request):
     if request.method == 'POST':
         print(request.POST)  # Imprime los datos del formulario en la consola
@@ -140,10 +156,8 @@ def postulaciontaller(request):
         if formulario.is_valid():
             formulario.save()
             messages.success(request, "Postulación almacenada correctamente")
-            return redirect('index')  # Reemplaza 'nombre_de_la_vista' con el nombre correcto de tu vista de listado o detalle
-        else:
-            messages.error(request, "Error en el formulario. Verifica los datos ingresados.")
-            print(formulario.errors)  # Imprime los errores en la consola para diagnóstico
+            return redirect('index') 
+
 
     data = {
         'form': PostulacionTallerForm()
